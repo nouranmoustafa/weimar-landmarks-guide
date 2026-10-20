@@ -56,7 +56,7 @@ import {
 import { People, StreetLights } from './decor.jsx'
 import LandmarkBuildings from './LandmarkBuildings.jsx'
 import LandmarkList from './LandmarkList.jsx'
-import Flyer from './Flyer.jsx'
+import Flyer, { FlyerPreview } from './Flyer.jsx'
 
 const ATTRIBUTION =
   'Buildings: 3D building models LoD2 © GDI-Th (dl-de/by-2-0). Land use and pedestrian network: Egor Gaydukov, InfAU, Bauhaus-Universität Weimar. Census grid: Zensus 2022, © Statistische Ämter des Bundes und der Länder (dl-de/by-2-0).'
@@ -98,6 +98,16 @@ export default function App() {
   const lastId = useRef(0)
   const pins = useRef(new Map())
   const today = useMemo(todayISO, [])
+
+  // Hovering a pin in the overview shows its folded flyer beside it (not in street view, where the
+  // full flyer is already out). The pin's place on screen is taken once, when the mouse arrives.
+  const [preview, setPreview] = useState(null)
+  const showPreview = (id, el) => {
+    if (view?.street) return
+    const r = el.getBoundingClientRect()
+    setPreview({ id, at: { left: r.left, right: r.right, top: r.top, height: r.height } })
+  }
+  const previewLandmark = preview && landmarks?.find((lm) => lm.id === preview.id)
 
   useEffect(() => {
     Promise.all(['kit.json', 'buildings.geojson', 'streets.graph.json', 'plots.geojson'].map(load))
@@ -273,8 +283,15 @@ export default function App() {
             <button
               ref={(el) => (el ? pins.current.set(lm.id, el) : pins.current.delete(lm.id))}
               className={`pin${lm.id === selected ? ' selected' : ''}${lm.id === missionTarget ? ' target' : ''}`}
-              onClick={() => selectLandmark(lm.id)}
-              title={lm.name}
+              onClick={() => {
+                setPreview(null)
+                selectLandmark(lm.id)
+              }}
+              onMouseEnter={(e) => showPreview(lm.id, e.currentTarget)}
+              onMouseLeave={() => setPreview(null)}
+              onFocus={(e) => showPreview(lm.id, e.currentTarget)}
+              onBlur={() => setPreview(null)}
+              aria-label={lm.name}
             >
               {lm.number}
             </button>
@@ -364,6 +381,7 @@ export default function App() {
       )}
 
       {landmark && <Flyer landmark={landmark} checked={checked} onClose={backToOverview} />}
+      {previewLandmark && !view?.street && <FlyerPreview landmark={previewLandmark} at={preview.at} today={today} />}
 
       {!landmark && (
         <Legend buildings={city?.buildings} showLandmark={tab === 'landmarks'} showTour={showTour} showMission={!!mission} />

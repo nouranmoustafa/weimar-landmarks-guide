@@ -1182,6 +1182,84 @@ body {
   }
 }
 
+/* the folded flyer shown beside a pin while hovering it */
+.flyer-preview {
+  position: fixed;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #fbf8f1;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  transform-origin: left center;
+  animation: preview-in 0.28s cubic-bezier(0.2, 1.2, 0.4, 1) both;
+}
+
+.flyer-preview.from-left {
+  transform-origin: right center;
+}
+
+/* a fold line down the cover, like a real folded flyer */
+.flyer-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 14px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.flyer-preview .collage {
+  min-height: 150px;
+}
+
+.preview-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 2px 12px 4px 42px;
+}
+
+.flyer-preview .unfold {
+  margin-top: auto;
+  font-size: 11px;
+}
+
+@keyframes preview-in {
+  from {
+    opacity: 0;
+    transform: perspective(700px) rotateY(-70deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.flyer-preview.from-left {
+  animation-name: preview-in-left;
+}
+
+@keyframes preview-in-left {
+  from {
+    opacity: 0;
+    transform: perspective(700px) rotateY(70deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* phones have no hover */
+@media (hover: none) {
+  .flyer-preview {
+    display: none;
+  }
+}
+
 /* the found target of a mission, and pins limited to it */
 .pins.only-target .pin:not(.target) {
   visibility: hidden;

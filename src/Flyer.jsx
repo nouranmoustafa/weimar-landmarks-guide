@@ -1,5 +1,43 @@
 import { useEffect, useState } from 'react'
-import { DayDots, formatDate } from './LandmarkList.jsx'
+import { DayDots, SeasonSummary, formatDate } from './LandmarkList.jsx'
+import { currentSeason } from './landmarks.js'
+
+const PREVIEW_W = 250
+const PREVIEW_H = 330
+
+// The folded flyer as a quick preview beside a pin, while the mouse is over it: the photo collage,
+// name, this season's opening hours and the walk from the bus. `at` is the pin's box on screen.
+export function FlyerPreview({ landmark: lm, at, today }) {
+  const src = (p) => `${import.meta.env.BASE_URL}data/landmarks/photos/${p.file}`
+  // to the right of the pin, or to its left near the right edge; kept inside the window vertically
+  const right = at.right + 12 + PREVIEW_W < window.innerWidth - 8
+  const left = right ? at.right + 12 : at.left - 12 - PREVIEW_W
+  const top = Math.min(Math.max(8, at.top + at.height / 2 - PREVIEW_H / 2), window.innerHeight - PREVIEW_H - 40)
+  return (
+    <div className={right ? 'flyer-preview' : 'flyer-preview from-left'} style={{ left, top, width: PREVIEW_W }} aria-hidden="true">
+      <div className={`collage n${Math.min(lm.photos.length, 4)}`}>
+        {lm.photos.slice(0, 4).map((p) => (
+          <img key={p.file} src={src(p)} alt="" />
+        ))}
+      </div>
+      <div className="cover-title">
+        <span className="badge">{lm.number}</span>
+        <div>
+          <h2>{lm.name}</h2>
+          <p>{lm.tagline}</p>
+        </div>
+      </div>
+      <div className="preview-facts">
+        <SeasonSummary season={currentSeason(lm.hours.seasons, today)} />
+        <span className="bus">
+          <span className="stop-sign">H</span>
+          {lm.walk.minutes} min walk from {lm.walk.stop}
+        </span>
+      </div>
+      <span className="unfold">Click the number for street view and the full flyer ›</span>
+    </div>
+  )
+}
 
 // A folded three-panel flyer. Folded, it shows a cover with a photo collage; pressed, it unfolds to
 // history (left), photos (middle) and opening hours with the walk from the bus (right).
