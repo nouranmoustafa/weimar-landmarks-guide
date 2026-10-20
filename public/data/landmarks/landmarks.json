@@ -1,0 +1,1700 @@
+{
+  "checked": "2026-10-20",
+  "note": "Opening hours change. Check the source link before you visit.",
+  "landmarks": [
+    {
+      "id": "goethe-house",
+      "name": "Goethe's House and Goethe National Museum",
+      "nameDe": "Goethes Wohnhaus und Goethe-Nationalmuseum",
+      "kind": "Museum · UNESCO World Heritage",
+      "address": "Frauenplan 1",
+      "lon": 11.32868,
+      "lat": 50.97751,
+      "tagline": "Where Goethe lived and worked for fifty years",
+      "history": [
+        "Built in 1709, the baroque house on the Frauenplan became Johann Wolfgang von Goethe's home in 1782, and he lived here until his death in 1832. Duke Carl August later gave it to him. Goethe rebuilt the rooms in the spirit of Weimar Classicism and filled them with his collections of art, minerals and natural specimens.",
+        "His study, library and many original furnishings survive. The garden behind the house grew vegetables and fruit for the household, and in 1817 Goethe added a pavilion for his mineral collection. Next door, the Goethe National Museum tells the story of his life and work.",
+        "The house is part of the UNESCO World Heritage site Classical Weimar (1998). From 2 November 2026 it closes for about three years of restoration."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026",
+            "from": "2026-03-21",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "9:30–18:00"
+              }
+            ],
+            "note": "Farewell weekend 30 October – 1 November. The historic house is open until 1 November."
+          },
+          {
+            "label": "From 2 November 2026",
+            "from": "2026-11-02",
+            "to": "2029-12-31",
+            "closed": "Goethe's House is closed for restoration for about three years. Check the Klassik Stiftung website for exhibitions."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer season flyer 2026",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Goethe House (Weimar)",
+          "url": "https://en.wikipedia.org/wiki/Goethe_House_(Weimar)"
+        }
+      ],
+      "photos": [
+        {
+          "file": "goethe-house-1.jpg",
+          "width": 720,
+          "height": 405,
+          "author": "Dr. Bernd Gross",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Goethes_Wohnhaus_in_Weimar_2.JPG"
+        },
+        {
+          "file": "goethe-house-2.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Dguendel",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Frauenplan_mit_Goethes_Wohnhaus.JPG"
+        },
+        {
+          "file": "goethe-house-3.jpg",
+          "width": 720,
+          "height": 466,
+          "author": "Jörg Blobelt",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:19750528109UR_Weimar_Goethe_Wohnhaus_am_Frauenplan_HH.jpg"
+        },
+        {
+          "file": "goethe-house-4.jpg",
+          "width": 720,
+          "height": 491,
+          "author": "Fortepan / Torjay",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Frauenplan,_Goethe-h%C3%A1z._Fortepan_69987.jpg"
+        }
+      ]
+    },
+    {
+      "id": "schiller-house",
+      "name": "Schiller's House and Schiller Museum",
+      "nameDe": "Schillers Wohnhaus und Schiller-Museum",
+      "kind": "Museum · UNESCO World Heritage",
+      "address": "Schillerstraße 12",
+      "lon": 11.32784,
+      "lat": 50.97913,
+      "tagline": "Schiller's last home, on the old Esplanade",
+      "history": [
+        "The house was built in 1777 for a merchant, on the Esplanade that replaced the town's old fortifications. Friedrich Schiller bought it in 1802 with borrowed money and moved in with his family that April, wanting a quiet place to write.",
+        "Here he finished Wilhelm Tell and other late works, and here he died in 1805. His study on the top floor keeps much of its original furniture. The museum next door shows changing exhibitions, currently 'Faust. An Exhibition'.",
+        "The house is part of the UNESCO World Heritage site Classical Weimar."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026",
+            "from": "2026-03-21",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ]
+          },
+          {
+            "label": "Winter 2026/27",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "9:30–16:00"
+              }
+            ],
+            "unconfirmed": "Not yet published. These are last winter's hours (2025/26)."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer flyer 2026 and winter flyer 2025/26",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Schillers Wohnhaus (German)",
+          "url": "https://de.wikipedia.org/wiki/Schillers_Wohnhaus"
+        }
+      ],
+      "photos": [
+        {
+          "file": "schiller-house-1.jpg",
+          "width": 720,
+          "height": 475,
+          "author": "Andreas Trepte",
+          "license": "CC BY-SA 2.5",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+          "source": "https://commons.wikimedia.org/wiki/File:Schiller_Weimar.jpg"
+        },
+        {
+          "file": "schiller-house-2.jpg",
+          "width": 720,
+          "height": 526,
+          "author": "Unknown author",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Schillerhaus_Weimar_1900.jpg"
+        },
+        {
+          "file": "schiller-house-3.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Dr. Bernd Gross",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Schillerhaus_Weimar_6.JPG"
+        },
+        {
+          "file": "schiller-house-4.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Dr. Bernd Gross",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Schillerhaus_Weimar_7.JPG"
+        }
+      ]
+    },
+    {
+      "id": "anna-amalia-library",
+      "name": "Duchess Anna Amalia Library",
+      "nameDe": "Herzogin Anna Amalia Bibliothek",
+      "kind": "Library · UNESCO World Heritage",
+      "address": "Platz der Demokratie 1",
+      "lon": 11.33211,
+      "lat": 50.97866,
+      "tagline": "The Rococo Hall, rebuilt after the fire of 2004",
+      "history": [
+        "The library is housed in the Green Palace, a Renaissance building from 1562–65. In 1766 Duchess Anna Amalia had it turned into a library, with the three-storey oval Rococo Hall at its heart. Goethe supervised the library for more than thirty years.",
+        "In September 2004 a fire destroyed the roof and much of the Rococo Hall, and about 50,000 books were lost. The hall was restored and reopened in 2007; work on the damaged books continued for years. A new study centre lies under the square in front.",
+        "Today it is a research library for German literature around 1800, with about a million items. It is part of the UNESCO World Heritage site Classical Weimar."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026 (Rococo Hall)",
+            "from": "2026-03-21",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "9:30–18:00"
+              }
+            ],
+            "note": "Study centre: Mon–Fri 9:00–20:00, Sat 9:00–17:00."
+          },
+          {
+            "label": "Winter 2026/27 (Rococo Hall)",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "9:30–18:00"
+              }
+            ],
+            "unconfirmed": "Not yet published. These are last winter's hours (2025/26)."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer flyer 2026 and winter flyer 2025/26",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Duchess Anna Amalia Library",
+          "url": "https://en.wikipedia.org/wiki/Duchess_Anna_Amalia_Library"
+        }
+      ],
+      "photos": [
+        {
+          "file": "anna-amalia-library-1.jpg",
+          "width": 720,
+          "height": 522,
+          "author": "Rudolf Klein",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Anna_amalia_bib_weimar.jpg"
+        },
+        {
+          "file": "anna-amalia-library-2.jpg",
+          "width": 720,
+          "height": 506,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Herzogin_Anna_Amalia_Bibliothek,_2019-09_CN-03.jpg"
+        },
+        {
+          "file": "anna-amalia-library-3.jpg",
+          "width": 720,
+          "height": 621,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Herzogin_Anna_Amalia_Bibliothek,_2019-09_CN-01.jpg"
+        },
+        {
+          "file": "anna-amalia-library-4.jpg",
+          "width": 473,
+          "height": 720,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Herzogin_Anna_Amalia_Bibliothek,_2019-09_CN-07.jpg"
+        }
+      ]
+    },
+    {
+      "id": "city-palace",
+      "name": "City Palace",
+      "nameDe": "Stadtschloss Weimar",
+      "kind": "Palace and museum · UNESCO World Heritage",
+      "address": "Burgplatz 4",
+      "lon": 11.33232,
+      "lat": 50.98066,
+      "tagline": "The dukes' residence, reopened in October 2026",
+      "history": [
+        "A moated castle stood here from the Middle Ages. From the 16th century it was the residence of the dukes of Saxe-Weimar, and later the grand dukes of Saxe-Weimar-Eisenach, until 1918. It burned several times; after the fire of 1774 it was rebuilt in the Neoclassical style, with Goethe on the building commission.",
+        "Four 'Poets' Rooms' remember Goethe, Schiller, Herder and Wieland. From 1923 the palace held an art museum. After years of restoration, the east wing reopened on 2–4 October 2026 with a new permanent exhibition, 'Weimarer Klassik', and a visitor centre.",
+        "The palace is part of the UNESCO World Heritage site Classical Weimar."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "From 2 October 2026",
+            "from": "2026-10-02",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ],
+            "note": "The Poets' Rooms and the palace chapel can be seen on guided tours."
+          },
+          {
+            "label": "Winter 2026/27",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "unconfirmed": "Winter hours are not yet published."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer season flyer 2026",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Schloss Weimar",
+          "url": "https://en.wikipedia.org/wiki/Schloss_Weimar"
+        }
+      ],
+      "photos": [
+        {
+          "file": "city-palace-1.jpg",
+          "width": 720,
+          "height": 530,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Stadtschloss,_2019-09_CN-09.jpg"
+        },
+        {
+          "file": "city-palace-2.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Raimond Spekking",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Luftbild_Weimarer_Stadtschloss-0063.jpg"
+        },
+        {
+          "file": "city-palace-3.jpg",
+          "width": 720,
+          "height": 554,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Stadtschloss,_2019-09_CN-05.jpg"
+        },
+        {
+          "file": "city-palace-4.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Stadtschloss,_2019-09_CN-18.jpg"
+        }
+      ]
+    },
+    {
+      "id": "bauhaus-museum",
+      "name": "Bauhaus Museum Weimar",
+      "nameDe": "Bauhaus-Museum Weimar",
+      "kind": "Museum",
+      "address": "Stéphane-Hessel-Platz 1",
+      "lon": 11.32438,
+      "lat": 50.98477,
+      "tagline": "The oldest Bauhaus collection in the world",
+      "history": [
+        "The Bauhaus was founded in Weimar in 1919 by Walter Gropius. In 1925 the school moved to Dessau. The objects Gropius left behind became the core of the world's oldest Bauhaus collection.",
+        "For years the collection was shown in a former coach house on Theaterplatz. In April 2019, for the Bauhaus centenary, it moved into this new building: a plain, closed cube by the architect Heike Hanada, next to the Weimarhallenpark.",
+        "The museum shows furniture, ceramics, textiles, metalwork and graphics by teachers and students such as Marianne Brandt, Marcel Breuer and Gunta Stölzl."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026",
+            "from": "2026-03-21",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ]
+          },
+          {
+            "label": "Winter 2026/27",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  0,
+                  1,
+                  1,
+                  1,
+                  0,
+                  0
+                ],
+                "hours": "11:00–17:00"
+              },
+              {
+                "days": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ],
+            "unconfirmed": "Not yet published. These are last winter's hours (2025/26)."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer flyer 2026 and winter flyer 2025/26",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Bauhaus Museum Weimar",
+          "url": "https://en.wikipedia.org/wiki/Bauhaus_Museum_Weimar"
+        }
+      ],
+      "photos": [
+        {
+          "file": "bauhaus-museum-1.jpg",
+          "width": 720,
+          "height": 485,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Bauhaus-Museum,_2019-09_CN-01.jpg"
+        },
+        {
+          "file": "bauhaus-museum-2.jpg",
+          "width": 720,
+          "height": 477,
+          "author": "Geolina163",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Neues_Bauhaus_Museum_Weimar_2019_02.jpg"
+        },
+        {
+          "file": "bauhaus-museum-3.jpg",
+          "width": 720,
+          "height": 503,
+          "author": "Geolina163",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Neues_Bauhaus_Museum_Weimar_2019_03.jpg"
+        },
+        {
+          "file": "bauhaus-museum-4.jpg",
+          "width": 720,
+          "height": 433,
+          "author": "Geolina163",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Neues_Bauhaus_Museum_Weimar_2019_10.jpg"
+        }
+      ]
+    },
+    {
+      "id": "museum-neues-weimar",
+      "name": "Museum Neues Weimar",
+      "nameDe": "Museum Neues Weimar",
+      "kind": "Museum",
+      "address": "Jorge-Semprún-Platz 5",
+      "lon": 11.32635,
+      "lat": 50.98618,
+      "tagline": "Art and design around 1900, the road to the Bauhaus",
+      "history": [
+        "Built in 1864–69 by the Prague architect Josef Zítek, this neo-Renaissance building was one of the first purpose-built museums in Germany. It held the grand duke's art collection and later the Weimar Painting School.",
+        "From 1937 it was absorbed into the Nazi Gauforum. Damaged in 1945, it stood empty and decayed for decades. Restored, it reopened in 1999 as the Neues Museum and was later renamed Museum Neues Weimar.",
+        "Today it shows art and design around 1900, from the Weimar Painting School to Henry van de Velde: the 'New Weimar' that led to the Bauhaus."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026",
+            "from": "2026-03-21",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–16:00"
+              }
+            ]
+          },
+          {
+            "label": "Winter 2026/27",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  0,
+                  1,
+                  1,
+                  1,
+                  0,
+                  0
+                ],
+                "hours": "11:00–17:00"
+              },
+              {
+                "days": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ],
+            "unconfirmed": "Not yet published. These are last winter's hours (2025/26)."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer flyer 2026 and winter flyer 2025/26",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Museum Neues Weimar (German)",
+          "url": "https://de.wikipedia.org/wiki/Museum_Neues_Weimar"
+        }
+      ],
+      "photos": [
+        {
+          "file": "museum-neues-weimar-1.jpg",
+          "width": 720,
+          "height": 489,
+          "author": "Rolf Kranz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Museum_Neues_Weimar.jpg"
+        },
+        {
+          "file": "museum-neues-weimar-2.jpg",
+          "width": 720,
+          "height": 479,
+          "author": "CTHOE",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar-Neues-Museum-CTH.JPG"
+        },
+        {
+          "file": "museum-neues-weimar-3.jpg",
+          "width": 396,
+          "height": 720,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Neues_Museum,_2019-09_CN-04.jpg"
+        },
+        {
+          "file": "museum-neues-weimar-4.jpg",
+          "width": 720,
+          "height": 490,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Neues_Museum,_2019-09_CN-01.jpg"
+        }
+      ]
+    },
+    {
+      "id": "wittumspalais",
+      "name": "Wittumspalais",
+      "nameDe": "Wittumspalais",
+      "kind": "Museum · UNESCO World Heritage",
+      "address": "Am Palais 3",
+      "lon": 11.32668,
+      "lat": 50.97977,
+      "tagline": "Duchess Anna Amalia's palace of round-table evenings",
+      "history": [
+        "The palace was built in 1767–69 for the minister Jakob Friedrich von Fritsch, on the site of a former Franciscan monastery. After the palace fire of 1774, Duchess Anna Amalia moved in, and she lived here as a widow until her death in 1807.",
+        "Her famous 'round table' evenings brought together Goethe, Wieland, Herder and other writers, artists and musicians. The rooms keep their painted ceilings by Adam Friedrich Oeser and furnishings from around 1800.",
+        "After restoration the palace reopened on 30 April 2026. It is part of the UNESCO World Heritage site Classical Weimar."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026 (from 1 May)",
+            "from": "2026-05-01",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ]
+          },
+          {
+            "label": "Winter 2026/27",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "unconfirmed": "Winter hours are not yet published."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer season flyer 2026",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Wittumspalais (German)",
+          "url": "https://de.wikipedia.org/wiki/Wittumspalais_(Weimar)"
+        }
+      ],
+      "photos": [
+        {
+          "file": "wittumspalais-1.jpg",
+          "width": 720,
+          "height": 503,
+          "author": "Krzysztof Golik",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Wittumspalais_in_Weimar.jpg"
+        },
+        {
+          "file": "wittumspalais-2.jpg",
+          "width": 720,
+          "height": 548,
+          "author": "MHM55",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:20241026-Weimar-Wittumspalais-Schillerstra%C3%9Fe-1.jpg"
+        },
+        {
+          "file": "wittumspalais-3.jpg",
+          "width": 720,
+          "height": 506,
+          "author": "Unknown author",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Wittumspalais_Weimar_1913_-_Empfangszimmer_1.jpg"
+        },
+        {
+          "file": "wittumspalais-4.jpg",
+          "width": 720,
+          "height": 557,
+          "author": "Unknown author",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Wittumspalais_Weimar_1913_-_Esszimmer.jpg"
+        }
+      ]
+    },
+    {
+      "id": "liszt-house",
+      "name": "Liszt House",
+      "nameDe": "Liszt-Haus",
+      "kind": "Museum",
+      "address": "Marienstraße 17",
+      "lon": 11.32999,
+      "lat": 50.97488,
+      "tagline": "Franz Liszt's rooms, with his Bechstein grand",
+      "history": [
+        "The house was built in 1798–99 for the court gardener, at the edge of the Park an der Ilm, and remodelled in 1819 by Clemens Wenzeslaus Coudray.",
+        "From 1869 Grand Duke Carl Alexander let Franz Liszt use the upper floor. Liszt spent several months here every year until his death in 1886, teaching young pianists from all over Europe.",
+        "Soon after his death the rooms opened as a museum. His living room and study keep their furnishings, including the Bechstein grand piano."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026",
+            "from": "2026-03-21",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ]
+          },
+          {
+            "label": "Winter 2026/27",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "unconfirmed": "Not yet published. Last winter (2025/26) the house was closed."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer flyer 2026 and winter flyer 2025/26",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Liszt-Haus Weimar (German)",
+          "url": "https://de.wikipedia.org/wiki/Liszt-Haus_Weimar"
+        }
+      ],
+      "photos": [
+        {
+          "file": "liszt-house-1.jpg",
+          "width": 720,
+          "height": 541,
+          "author": "Most Curious",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Liszthaus_in_Weimar_(S%C3%BCdostansicht).jpg"
+        },
+        {
+          "file": "liszt-house-2.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Hermann Junghans",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Liszt_Speisezimmer_2.JPG"
+        },
+        {
+          "file": "liszt-house-3.jpg",
+          "width": 720,
+          "height": 521,
+          "author": "Unknown photographer",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Liszt-Widmung.jpg"
+        },
+        {
+          "file": "liszt-house-4.jpg",
+          "width": 720,
+          "height": 479,
+          "author": "Rudolf Klein",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Liszt_weimar.jpg"
+        }
+      ]
+    },
+    {
+      "id": "park-cave",
+      "name": "Park Cave",
+      "nameDe": "Parkhöhle",
+      "kind": "Underground exhibition",
+      "address": "Entrance near the Liszt House",
+      "lon": 11.33104,
+      "lat": 50.97504,
+      "tagline": "Tunnels under the park, 200,000 years deep",
+      "history": [
+        "Duke Carl August had these cellars and tunnels dug in 1794–97 for an underground brewery for his favourite porter beer. The brewery was never built. Until 1805 travertine was quarried here for paths, and Goethe collected fossils from the Weimar travertine.",
+        "Later the tunnels were used for walks and for storing beer and charcoal. In the Second World War they were extended into an air-raid shelter.",
+        "Since 1997 the cave, about twelve metres under the Park an der Ilm, has been an underground exhibition on 200,000 years of the history of the earth and of people."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "Summer season 2026",
+            "from": "2026-03-21",
+            "to": "2026-11-01",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ]
+          },
+          {
+            "label": "Winter 2026/27",
+            "from": "2026-11-02",
+            "to": "2027-03-20",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–16:00"
+              }
+            ],
+            "unconfirmed": "Not yet published. These are last winter's hours (2025/26)."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer flyer 2026 and winter flyer 2025/26",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Parkhöhle (German)",
+          "url": "https://de.wikipedia.org/wiki/Parkh%C3%B6hle"
+        }
+      ],
+      "photos": [
+        {
+          "file": "park-cave-1.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Most Curious",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Parkh%C3%B6hle_im_Park_an_der_Ilm_in_Weimar_02.jpg"
+        },
+        {
+          "file": "park-cave-2.jpg",
+          "width": 526,
+          "height": 720,
+          "author": "Most Curious",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Parkh%C3%B6hle_im_Park_an_der_Ilm_in_Weimar_01.jpg"
+        },
+        {
+          "file": "park-cave-3.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Tsungam",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar_-_2016-09-22_-_Ilmpark,_H%C3%B6hlenausgang_(002).jpg"
+        },
+        {
+          "file": "park-cave-4.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Geolina163",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar_Parkh%C3%B6hle_3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "goethe-schiller-archive",
+      "name": "Goethe and Schiller Archive",
+      "nameDe": "Goethe- und Schiller-Archiv",
+      "kind": "Archive · free entry",
+      "address": "Jenaer Straße 1",
+      "lon": 11.33376,
+      "lat": 50.98308,
+      "tagline": "Germany's oldest literary archive",
+      "history": [
+        "When Goethe's last grandson died in 1885, he left Goethe's papers to Grand Duchess Sophie, who founded the Goethe Archive that same year. In 1889 Schiller's descendants added his papers, and it became the Goethe and Schiller Archive.",
+        "The Grand Duchess had this building put up above the Ilm valley; it opened in 1896. The archive now holds the papers of about 130 people, mainly writers of the 18th and 19th centuries.",
+        "Goethe's papers have been part of UNESCO's Memory of the World register since 2001. Changing exhibitions are free to visit."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "All year",
+            "from": "2026-01-03",
+            "to": "2026-12-23",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  0,
+                  0
+                ],
+                "hours": "9:00–18:00"
+              },
+              {
+                "days": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1
+                ],
+                "hours": "11:00–16:00"
+              }
+            ],
+            "note": "Last year it was closed from 24 December to 2 January."
+          }
+        ],
+        "source": {
+          "label": "Klassik Stiftung Weimar, summer flyer 2026 and winter flyer 2025/26",
+          "url": "https://www.klassik-stiftung.de/assets/Dokumente/KOEM/PDFs/2026/KSW_MSG2026-Sommer-Flyer_dt_final.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Goethe- und Schiller-Archiv (German)",
+          "url": "https://de.wikipedia.org/wiki/Goethe-_und_Schiller-Archiv"
+        }
+      ],
+      "photos": [
+        {
+          "file": "goethe-schiller-archive-1.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Michael Sander",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Goethe-Schiller-Archiv_Weimar.JPG"
+        },
+        {
+          "file": "goethe-schiller-archive-2.jpg",
+          "width": 720,
+          "height": 472,
+          "author": "Michak",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "source": "https://commons.wikimedia.org/wiki/File:Goethe-_und_Schiller_Archiv_Weimar_2005.jpg"
+        },
+        {
+          "file": "goethe-schiller-archive-3.jpg",
+          "width": 682,
+          "height": 720,
+          "author": "Die Gartenlaube (1896)",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Die_Gartenlaube_(1896)_b_0507.jpg"
+        },
+        {
+          "file": "goethe-schiller-archive-4.jpg",
+          "width": 720,
+          "height": 565,
+          "author": "SchiDD",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:WE-Goethe-Schiller-Archiv-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "weimar-republic-house",
+      "name": "House of the Weimar Republic",
+      "nameDe": "Haus der Weimarer Republik",
+      "kind": "Museum",
+      "address": "Theaterplatz 4",
+      "lon": 11.32634,
+      "lat": 50.98005,
+      "tagline": "The story of Germany's first democracy",
+      "history": [
+        "In 1919 the National Assembly met in the theatre across the square and wrote the constitution of Germany's first democracy, which is why it is called the Weimar Republic.",
+        "The museum opened on 31 July 2019, exactly 100 years after the constitution was adopted. It sits in a Neoclassical coach house by Clemens Wenzeslaus Coudray, which had earlier been an art gallery and, from the 1990s until 2019, the first Bauhaus Museum.",
+        "It is run by the association Weimarer Republik e.V. and is meant as a place for meeting and discussion as well as a museum."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "From 1 April 2026",
+            "from": "2026-04-01",
+            "to": "2026-12-31",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "9:00–19:00"
+              }
+            ],
+            "note": "Until 31 March 2026 it was open Tue–Sun 10:00–19:00. Winter hours may change again."
+          }
+        ],
+        "source": {
+          "label": "Weimar Tourist Information, WeimarCard flyer March 2026",
+          "url": "https://www.weimar.de/fileadmin/Redaktion/Tourismus/Bilder/Reiseangebote/weimarcard/WeimarCard_Flyer_03_2026_web.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Haus der Weimarer Republik (German)",
+          "url": "https://de.wikipedia.org/wiki/Haus_der_Weimarer_Republik"
+        }
+      ],
+      "photos": [
+        {
+          "file": "weimar-republic-house-1.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Olaf Kosinsky",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:2019-07-30_Haus-Weimarer_Republik_MG_9122.jpg"
+        },
+        {
+          "file": "weimar-republic-house-2.jpg",
+          "width": 720,
+          "height": 468,
+          "author": "Olaf Kosinsky",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:2019-07-30_Haus-Weimarer_Republik_MG_9138.jpg"
+        },
+        {
+          "file": "weimar-republic-house-3.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Olaf Kosinsky",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:2019-07-30_Haus-Weimarer_Republik_MG_9127.jpg"
+        },
+        {
+          "file": "weimar-republic-house-4.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Olaf Kosinsky",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:2019-07-30_Haus-Weimarer_Republik_MG_9142.jpg"
+        }
+      ]
+    },
+    {
+      "id": "herder-church",
+      "name": "Herder Church (Town Church of St Peter and Paul)",
+      "nameDe": "Stadtkirche St. Peter und Paul (Herderkirche)",
+      "kind": "Church · UNESCO World Heritage",
+      "address": "Herderplatz",
+      "lon": 11.32925,
+      "lat": 50.98123,
+      "tagline": "Cranach's altarpiece and Herder's pulpit",
+      "history": [
+        "A church has stood here since the 13th century. The present late-Gothic hall church was built in 1498–1500. It has been Lutheran since 1525, and Martin Luther preached here. Johann Sebastian Bach played its organ, and two of his sons were baptised here.",
+        "From 1776 the philosopher and theologian Johann Gottfried Herder preached here as general superintendent, which is why it is called the Herder Church. He is buried in the church.",
+        "Its altarpiece was begun by Lucas Cranach the Elder and finished by his son in 1555. The church is part of the UNESCO World Heritage site Classical Weimar."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "April – October",
+            "from": "2026-04-01",
+            "to": "2026-10-31",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  0
+                ],
+                "hours": "10:00–18:00"
+              },
+              {
+                "days": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "hours": "11:00–12:00, 14:00–16:00"
+              }
+            ],
+            "note": "Sundays and public holidays: 11:00–12:00 and 14:00–16:00."
+          },
+          {
+            "label": "November – March",
+            "from": "2026-11-01",
+            "to": "2027-03-31",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  0
+                ],
+                "hours": "11:00–16:00"
+              },
+              {
+                "days": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "hours": "11:00–12:00, 14:00–16:00"
+              }
+            ]
+          }
+        ],
+        "source": {
+          "label": "Evangelical parish of Weimar (the pages give no year)",
+          "url": "https://weimar-evangelisch.de/offene-herderkirche-ab-1-november/"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: St. Peter und Paul, Weimar",
+          "url": "https://en.wikipedia.org/wiki/St._Peter_und_Paul,_Weimar"
+        }
+      ],
+      "photos": [
+        {
+          "file": "herder-church-1.jpg",
+          "width": 720,
+          "height": 599,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Herderkirche,_2019-09_CN-03.jpg"
+        },
+        {
+          "file": "herder-church-2.jpg",
+          "width": 720,
+          "height": 460,
+          "author": "GFreihalter",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar_Herderkirche_Cranachaltar_501.jpg"
+        },
+        {
+          "file": "herder-church-3.jpg",
+          "width": 720,
+          "height": 595,
+          "author": "Steffen Schmitz",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar,_Herderkirche,_2019-09_CN-01.jpg"
+        },
+        {
+          "file": "herder-church-4.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Raimond Spekking",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Stadtkirche_St._Peter_%26_Paul_-_Herderkirche_Weimar-0929.jpg"
+        }
+      ]
+    },
+    {
+      "id": "theatre-square",
+      "name": "Theatre Square: National Theatre and Goethe–Schiller Monument",
+      "nameDe": "Theaterplatz: Deutsches Nationaltheater und Goethe-Schiller-Denkmal",
+      "kind": "Theatre and monument",
+      "address": "Theaterplatz 2",
+      "lon": 11.32565,
+      "lat": 50.97984,
+      "tagline": "Two poets in bronze, and the birthplace of a constitution",
+      "history": [
+        "Goethe directed the court theatre here from 1791 to 1817, and many of Schiller's plays had their first performances on its stage. The present building dates from 1906–08 and was rebuilt after damage in 1945.",
+        "In 1919 the National Assembly met in this theatre and adopted the constitution of the Weimar Republic. Today the German National Theatre and the Staatskapelle Weimar orchestra play here.",
+        "In front stands Ernst Rietschel's bronze Goethe–Schiller Monument of 1857. Goethe rests a hand on Schiller's shoulder, and both are shown the same height, though Goethe was the shorter of the two."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "All year",
+            "from": "2026-01-01",
+            "to": "2026-12-31",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "Square and monument open at all times"
+              }
+            ],
+            "note": "The theatre is open for performances; see its programme."
+          }
+        ],
+        "source": {
+          "label": "Deutsches Nationaltheater Weimar",
+          "url": "https://www.nationaltheater-weimar.de/"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Deutsches Nationaltheater",
+          "url": "https://en.wikipedia.org/wiki/Deutsches_Nationaltheater_und_Staatskapelle_Weimar"
+        },
+        {
+          "label": "Wikipedia: Goethe and Schiller Monument",
+          "url": "https://en.wikipedia.org/wiki/Goethe%E2%80%93Schiller_Monument"
+        }
+      ],
+      "photos": [
+        {
+          "file": "theatre-square-1.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Raimond Spekking",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Deutsches_Nationaltheater_Weimar_mit_Banner_-Das_DNT_steht_f%C3%BCr_eine_offene_und_freie_Gesellschaft--8889.jpg"
+        },
+        {
+          "file": "theatre-square-2.jpg",
+          "width": 720,
+          "height": 701,
+          "author": "Andreas Praefcke",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar_Goethe-Schiller-Denkmal_2012_02.jpg"
+        },
+        {
+          "file": "theatre-square-3.jpg",
+          "width": 720,
+          "height": 458,
+          "author": "Peter Woltze (1860-1925)",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Peter_Woltze_Weimar_Deutsches_Nationaltheater.jpg"
+        },
+        {
+          "file": "theatre-square-4.jpg",
+          "width": 720,
+          "height": 479,
+          "author": "Andreas Praefcke",
+          "license": "CC BY 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Weimar_Goethe-Schiller-Denkmal_2012_05.jpg"
+        }
+      ]
+    },
+    {
+      "id": "markt",
+      "name": "Market Square and Cranach House",
+      "nameDe": "Markt und Cranachhaus",
+      "kind": "Square",
+      "address": "Markt 11–12",
+      "lon": 11.33034,
+      "lat": 50.97937,
+      "tagline": "Renaissance gables where Cranach spent his last year",
+      "history": [
+        "The Cranach House on the east side of the Markt was built in 1547–49 by Nikolaus Gromann for the chancellor Christian Brück, Lucas Cranach the Elder's son-in-law. Its richly decorated Renaissance gable carries Cranach's coat of arms, a winged snake.",
+        "Cranach came to Weimar in 1552, aged about 80, and spent the last year of his life here. In his attic studio he began the altarpiece now in the Herder Church.",
+        "Badly damaged in the Second World War, the house was rebuilt to its old form. Across the square stands the town hall; the Tourist Information is at Markt 4."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "All year",
+            "from": "2026-01-01",
+            "to": "2026-12-31",
+            "rows": [
+              {
+                "days": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "Square open at all times"
+              }
+            ],
+            "note": "Tourist Information, Markt 4: Mon–Sat 9:30–18:00, Sundays and public holidays 9:30–14:00. The Cranach House itself is not a museum."
+          }
+        ],
+        "source": {
+          "label": "Weimar Tourist Information, WeimarCard flyer March 2026",
+          "url": "https://www.weimar.de/fileadmin/Redaktion/Tourismus/Bilder/Reiseangebote/weimarcard/WeimarCard_Flyer_03_2026_web.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Cranachhaus (German)",
+          "url": "https://de.wikipedia.org/wiki/Cranachhaus"
+        }
+      ],
+      "photos": [
+        {
+          "file": "markt-1.jpg",
+          "width": 720,
+          "height": 604,
+          "author": "User:Mahlum",
+          "license": "Public domain",
+          "licenseUrl": null,
+          "source": "https://commons.wikimedia.org/wiki/File:Cranachhaus_Weimar.jpg"
+        },
+        {
+          "file": "markt-2.jpg",
+          "width": 720,
+          "height": 405,
+          "author": "Dr. Bernd Gross",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Markt_11_Weimar_5.JPG"
+        },
+        {
+          "file": "markt-3.jpg",
+          "width": 720,
+          "height": 339,
+          "author": "OTFW, Berlin",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Gedenktafel_Markt_11_12_(Weimar)_Lucas_Cranach_D%C3%84.jpg"
+        },
+        {
+          "file": "markt-4.jpg",
+          "width": 720,
+          "height": 440,
+          "author": "SchiDD",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:WE-Cranachhaus-5.jpg"
+        }
+      ]
+    },
+    {
+      "id": "city-museum",
+      "name": "Weimar City Museum",
+      "nameDe": "Stadtmuseum Weimar im Bertuchhaus",
+      "kind": "Museum",
+      "address": "Karl-Liebknecht-Straße 5–9",
+      "lon": 11.32551,
+      "lat": 50.98336,
+      "tagline": "The town's own story, in Bertuch's house",
+      "history": [
+        "The museum began in 1889 as a natural history museum and was taken over by the town in 1903, which makes it the oldest town museum in Thuringia.",
+        "It is housed in the Bertuchhaus, built in 1780–82 and 1799–1803 for the publisher and businessman Friedrich Justin Bertuch. Schiller called it the most beautiful house in Weimar.",
+        "Its exhibitions cover the history of the town, from its beginnings to the 20th century."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "2026",
+            "from": "2026-01-01",
+            "to": "2026-12-31",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–17:00"
+              }
+            ]
+          }
+        ],
+        "source": {
+          "label": "Weimar Tourist Information, WeimarCard flyer March 2026",
+          "url": "https://www.weimar.de/fileadmin/Redaktion/Tourismus/Bilder/Reiseangebote/weimarcard/WeimarCard_Flyer_03_2026_web.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Weimar City Museum",
+          "url": "https://en.wikipedia.org/wiki/Weimar_City_Museum"
+        }
+      ],
+      "photos": [
+        {
+          "file": "city-museum-1.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "R.Möhler",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Stadtmuseum_Weimar_im_Bertuchhaus.jpg"
+        },
+        {
+          "file": "city-museum-2.jpg",
+          "width": 720,
+          "height": 524,
+          "author": "MichaelWE",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Karl-Liebknecht-Str.5-9,_Bertuchhaus,_Weimar.JPG"
+        },
+        {
+          "file": "city-museum-3.jpg",
+          "width": 532,
+          "height": 720,
+          "author": "MichaelWE",
+          "license": "CC BY-SA 3.0 de",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "source": "https://commons.wikimedia.org/wiki/File:Karl-Liebknecht-Str.5-9,_Bertuchhaus,_Mittelbau,_Weimar.JPG"
+        }
+      ]
+    },
+    {
+      "id": "prehistory-museum",
+      "name": "Museum of the Pre- and Early History of Thuringia",
+      "nameDe": "Museum für Ur- und Frühgeschichte Thüringens",
+      "kind": "Museum",
+      "address": "Humboldtstraße 11 (entrance Amalienstraße 6)",
+      "lon": 11.32602,
+      "lat": 50.97551,
+      "tagline": "Ice-age finds from the Ilm valley",
+      "history": [
+        "The museum is in the Poseck House, built in 1790–91 and once the second-largest house in Weimar. The park in front of it, opposite the Historic Cemetery, was its garden.",
+        "It grew from the collection of a natural science society founded in 1888. Finds from the Ice Age travertines of the Ilm valley around Weimar soon made it known well beyond the region.",
+        "Today it shares the building with the Thuringian State Office for Heritage and Archaeology, and its exhibition traces life in Thuringia from the Stone Age to the early Middle Ages."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "2026",
+            "from": "2026-01-01",
+            "to": "2026-12-31",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "hours": "9:00–18:00"
+              },
+              {
+                "days": [
+                  0,
+                  0,
+                  1,
+                  1,
+                  1,
+                  0,
+                  0
+                ],
+                "hours": "9:00–17:00"
+              },
+              {
+                "days": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1
+                ],
+                "hours": "10:00–17:00"
+              }
+            ],
+            "note": "Public holidays: 10:00–17:00."
+          }
+        ],
+        "source": {
+          "label": "Weimar Tourist Information, WeimarCard flyer March 2026",
+          "url": "https://www.weimar.de/fileadmin/Redaktion/Tourismus/Bilder/Reiseangebote/weimarcard/WeimarCard_Flyer_03_2026_web.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Wikipedia: Museum für Ur- und Frühgeschichte Thüringens (German)",
+          "url": "https://de.wikipedia.org/wiki/Museum_f%C3%BCr_Ur-_und_Fr%C3%BChgeschichte_Th%C3%BCringens"
+        }
+      ],
+      "photos": [
+        {
+          "file": "prehistory-museum-1.jpg",
+          "width": 720,
+          "height": 513,
+          "author": "Most Curious",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_f%C3%BCr_Ur-_und_Fr%C3%BChgeschichte_Weimar.jpg"
+        },
+        {
+          "file": "prehistory-museum-2.jpg",
+          "width": 720,
+          "height": 481,
+          "author": "Lucas Friese",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_f%C3%BCr_Ur-_und_Fr%C3%BChgeschichte_Th%C3%BCringens_Weimar.jpg"
+        },
+        {
+          "file": "prehistory-museum-3.jpg",
+          "width": 720,
+          "height": 540,
+          "author": "Giorno2",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_f%C3%BCr_Ur-_und_Fr%C3%BChgeschichte_Th%C3%BCringens_1.jpg"
+        },
+        {
+          "file": "prehistory-museum-4.jpg",
+          "width": 720,
+          "height": 479,
+          "author": "Polibil",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_f%C3%BCr_Ur-_und_Fr%C3%BChgeschichte_Th%C3%BCringens_2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "forced-labour-museum",
+      "name": "Museum of Forced Labour under National Socialism",
+      "nameDe": "Museum Zwangsarbeit im Nationalsozialismus",
+      "kind": "Museum and memorial",
+      "address": "Jorge-Semprún-Platz 2",
+      "lon": 11.32743,
+      "lat": 50.98481,
+      "tagline": "Forced labour, told inside the former Nazi Gauforum",
+      "history": [
+        "The Gauforum was built from 1937 as the Nazi party's regional headquarters, a huge complex of offices and a parade ground meant to dominate the town.",
+        "The museum opened in part of the former Gauforum on 8 May 2024. It is run by the Buchenwald and Mittelbau-Dora Memorials Foundation.",
+        "Its exhibition tells how millions of people from all over Europe were forced to work for Germany during the war, and how much of German society took part in it and profited from it."
+      ],
+      "hours": {
+        "seasons": [
+          {
+            "label": "2026",
+            "from": "2026-01-01",
+            "to": "2026-12-31",
+            "rows": [
+              {
+                "days": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "hours": "10:00–18:00"
+              }
+            ],
+            "note": "Also open on public holidays."
+          }
+        ],
+        "source": {
+          "label": "Weimar Tourist Information, WeimarCard flyer March 2026",
+          "url": "https://www.weimar.de/fileadmin/Redaktion/Tourismus/Bilder/Reiseangebote/weimarcard/WeimarCard_Flyer_03_2026_web.pdf"
+        }
+      },
+      "links": [
+        {
+          "label": "Stadtwerke Weimar: opening of the museum, 8 May 2024 (German)",
+          "url": "https://sw-weimar.de/unser-unternehmen/aktuelles/aktuelles-details/am-08-mai-2024-eroeffnet-im-ehemaligen-gauforum-in-weimar-das-museum-zwangsarbeit-im-nationalsozialismus-es-gehoert-zur-stiftung-gedenkstaette-buchenwald-und-mittelbau-dora"
+        }
+      ],
+      "photos": [
+        {
+          "file": "forced-labour-museum-1.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Kasa Fue",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_Zwangsarbeit_Weimar_im_Gauforum_Mai_2025_19.jpg"
+        },
+        {
+          "file": "forced-labour-museum-2.jpg",
+          "width": 480,
+          "height": 720,
+          "author": "Kasa Fue",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_Zwangsarbeit_Weimar_im_Gauforum_Mai_2025_22.jpg"
+        },
+        {
+          "file": "forced-labour-museum-3.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Kasa Fue",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_Zwangsarbeit_Weimar_im_Gauforum_Mai_2025_4.jpg"
+        },
+        {
+          "file": "forced-labour-museum-4.jpg",
+          "width": 720,
+          "height": 480,
+          "author": "Kasa Fue",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Museum_Zwangsarbeit_Weimar_im_Gauforum_Mai_2025_2.jpg"
+        }
+      ]
+    }
+  ]
+}

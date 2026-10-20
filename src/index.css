@@ -1,0 +1,1219 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #e6e3dc;
+  color: #1c1c1c;
+}
+
+.app {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.loading {
+  margin: 0;
+  padding: 20vh 1rem 0;
+  text-align: center;
+}
+
+.panel,
+.legend {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.panel {
+  top: 12px;
+  left: 12px;
+  width: 340px;
+  max-width: calc(100% - 24px);
+  max-height: calc(100% - 80px);
+  overflow-y: auto;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.panel h1 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.hint {
+  margin: 0 0 8px;
+  color: #555;
+}
+
+.warning {
+  margin: 0 0 8px;
+  color: #b42318;
+}
+
+.panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+
+.panel th {
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding: 2px 4px 4px 0;
+}
+
+.panel td {
+  padding: 4px 4px 4px 0;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.panel td:last-child {
+  white-space: normal;
+}
+
+.missing {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+.method {
+  border-top: 1px solid #ddd;
+  color: #444;
+  font-size: 12px;
+}
+
+.method p {
+  margin: 6px 0;
+}
+
+.legend {
+  right: 12px;
+  top: 12px;
+  padding: 10px 12px;
+  max-height: calc(100% - 80px);
+  overflow-y: auto;
+}
+
+.legend summary {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.legend[open] summary {
+  margin-bottom: 6px;
+}
+
+.legend h2 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.legend ul {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+}
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  vertical-align: -2px;
+}
+
+.attribution {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 11px;
+  color: #444;
+}
+
+@media (max-width: 700px) {
+  .legend {
+    top: auto;
+    bottom: 100px;
+    font-size: 11px;
+  }
+  .panel {
+    max-height: 45%;
+  }
+}
+
+/* --- tabs ------------------------------------------------------------------ */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: -2px 0 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 6px 8px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+}
+
+.tabs button[aria-selected='true'] {
+  color: #1c1c1c;
+  border-bottom-color: #1f5a96;
+}
+
+/* --- landmark tour (in the walking reach tab) ------------------------------- */
+
+.tour {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tour-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #6a2c91;
+  border-radius: 6px;
+  background: #fff;
+  color: #6a2c91;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tour-button.on {
+  background: #6a2c91;
+  color: #fff;
+}
+
+.tour-line {
+  flex: none;
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.tour-summary {
+  margin: 8px 0 6px;
+}
+
+.tour-stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.tour-stops li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.tour-stops .badge {
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+}
+
+.tour-stop {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: #1f5a96;
+  text-decoration: underline;
+  text-decoration-color: rgba(31, 90, 150, 0.35);
+  cursor: pointer;
+}
+
+.tour-leg {
+  grid-column: 2;
+  color: #6a2c91;
+  font-size: 11px;
+}
+
+.small-note {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: #666;
+}
+
+/* --- landmark list --------------------------------------------------------- */
+
+.landmark-list {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.landmark {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 6px;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  border-radius: 6px;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.landmark:hover {
+  background: #f4f1ea;
+}
+
+.landmark.selected {
+  background: #fbe9df;
+}
+
+.landmark-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.landmark-kind {
+  color: #777;
+  font-size: 12px;
+}
+
+.badge {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #33302a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.season {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.season.closed,
+.closed {
+  color: #b42318;
+  font-size: 12px;
+}
+
+.unconfirmed {
+  color: #8a5a00;
+  font-size: 12px;
+}
+
+.hours-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.days {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.day {
+  display: inline-grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 9px;
+  color: #aaa;
+  background: #eee;
+}
+
+.day.open {
+  color: #fff;
+  background: #6b6458;
+}
+
+.bus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #444;
+}
+
+/* German bus stop sign: a green H on yellow */
+.stop-sign,
+.stop-pin {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #1e7a3c;
+  background: #f5d000;
+  color: #1e7a3c;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.stop-pin {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* --- pins in the 3D view --------------------------------------------------- */
+
+.pin {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #33302a;
+  color: #fff;
+  font: 700 12px system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.pin:hover,
+.pin.selected {
+  background: #c2410c;
+}
+
+.pins {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.pins.hidden,
+.pins.street .pin:not(.selected) {
+  visibility: hidden;
+}
+
+.pins .pin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: auto;
+}
+
+/* No scaling on hover: the pins are placed with a transform, and scaling would move them away from the mouse. */
+.pins .pin:hover,
+.pins .pin.selected {
+  border-color: #fbe9df;
+  box-shadow: 0 0 0 3px #c2410c;
+}
+
+/* Panels sit above the pins. */
+.panel,
+.legend,
+.attribution,
+.flyer,
+.overview-button {
+  z-index: 30;
+}
+
+.overview-button {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 20px;
+  background: #33302a;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* --- the folded flyer ------------------------------------------------------- */
+
+.flyer {
+  --w: clamp(210px, calc((100vw - 420px) / 3), 290px);
+  --h: min(460px, calc(100vh - 120px));
+  position: absolute;
+  right: 16px;
+  bottom: 40px;
+  width: calc(var(--w) * 3);
+  height: var(--h);
+  perspective: 1800px;
+  pointer-events: none;
+  transform: translateX(var(--w));
+  transition: transform 0.9s ease;
+}
+
+.flyer.open {
+  transform: none;
+}
+
+.flyer-tools {
+  position: absolute;
+  top: -34px;
+  right: var(--w);
+  display: flex;
+  gap: 6px;
+  pointer-events: auto;
+  transition: right 0.9s ease;
+}
+
+.flyer.open .flyer-tools {
+  right: 0;
+}
+
+.flyer-tools button {
+  min-width: 28px;
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 14px;
+  background: #33302a;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.sheet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.middle,
+.flap {
+  position: absolute;
+  top: 0;
+  width: var(--w);
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* the middle panel sits under the folds, so it drops the floating panel look */
+.middle {
+  left: var(--w);
+  max-height: none;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-radius: 0;
+  background: #fbf8f1;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.flap {
+  transform-style: preserve-3d;
+  transition: transform 0.9s ease;
+}
+
+/* Folded, the left flap tucks just behind the middle panel and the right flap (the cover) lies on top,
+   slightly ajar, so its edges show like a real folded flyer. */
+.flap.left {
+  left: 0;
+  transform-origin: right center;
+  transform: translateZ(-12px) rotateY(179deg);
+}
+
+.flap.right {
+  left: calc(var(--w) * 2);
+  transform-origin: left center;
+  transform: translateZ(2px) rotateY(-177deg);
+}
+
+.flyer.open .flap.left,
+.flyer.open .flap.right {
+  transform: translateZ(0) rotateY(0deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  backface-visibility: hidden;
+  background: #fbf8f1;
+  font-size: 12.5px;
+  line-height: 1.5;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.face.back {
+  transform: rotateY(180deg);
+}
+
+/* soft shading along the folds */
+.flap.left .face.front {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.06), transparent 18px), #fbf8f1;
+}
+
+.flap.right .face.front {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.06), transparent 18px), #fbf8f1;
+}
+
+.paper {
+  background: #f3efe5;
+}
+
+.face h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: #c2410c;
+}
+
+.face h3:not(:first-child) {
+  margin-top: 14px;
+}
+
+.face h4 {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.face p {
+  margin: 0 0 8px;
+}
+
+.face .small,
+.middle .address,
+.photo-main figcaption {
+  font-size: 11px;
+  color: #666;
+}
+
+.face a,
+.photo-main a {
+  color: #1f5a96;
+}
+
+.season-block .hours-row {
+  margin: 3px 0;
+}
+
+.walk {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* the cover: the back of the right flap, seen while the flyer is folded */
+.cover {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.collage {
+  flex: 1;
+  display: grid;
+  gap: 3px;
+  min-height: 0;
+  background: #fbf8f1;
+}
+
+.collage img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.collage.n4 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+}
+
+.collage.n4 img:first-child {
+  grid-column: 1 / 3;
+}
+
+.collage.n4 img:nth-child(2) {
+  grid-row: 2 / 4;
+}
+
+.collage.n3 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+}
+
+.collage.n3 img:first-child {
+  grid-column: 1 / 3;
+}
+
+.cover-title {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 2px;
+  background: #fbf8f1;
+}
+
+.cover-title h2 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.cover-title p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #555;
+}
+
+.unfold {
+  padding: 4px 12px 10px;
+  background: #fbf8f1;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c2410c;
+}
+
+.photo-main {
+  margin: 0;
+}
+
+.photo-main img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.photo-main figcaption {
+  margin-top: 4px;
+}
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.thumb {
+  padding: 0;
+  border: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+}
+
+.thumb.on {
+  border-color: #c2410c;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* On a phone the flyer is a sheet at the bottom; opened, its panels stack instead of unfolding sideways. */
+@media (max-width: 760px) {
+  .flyer {
+    --w: calc(100vw - 32px);
+    --h: min(420px, 60vh);
+    left: 16px;
+    right: 16px;
+    bottom: 36px;
+    width: auto;
+    transform: none;
+    perspective: none;
+  }
+
+  .flyer-tools,
+  .flyer.open .flyer-tools {
+    right: 0;
+  }
+
+  .middle,
+  .flap,
+  .flap.left,
+  .flap.right {
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
+
+  /* Room for the street view: the list hides while a flyer is out, and the flyer clears the attribution. */
+  .app.has-flyer .panel {
+    display: none;
+  }
+
+  .flyer {
+    bottom: 104px;
+  }
+
+  .attribution {
+    font-size: 10px;
+  }
+
+  .flyer:not(.open) .flap.left,
+  .flyer:not(.open) .middle,
+  .flyer:not(.open) .face.front {
+    display: none;
+  }
+
+  .flyer:not(.open) .face.back {
+    transform: none;
+  }
+
+  .flyer.open .sheet {
+    overflow-y: auto;
+    background: #fbf8f1;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  }
+
+  .flyer.open .middle,
+  .flyer.open .flap,
+  .flyer.open .face.front {
+    position: static;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .flyer.open .face.back {
+    display: none;
+  }
+}
+
+/* --- the playful extras: gossip and secret missions ------------------------------ */
+
+.funbar {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  z-index: 30;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.fun-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1.5px solid #3a312a;
+  border-radius: 20px;
+  background: #fffdf7;
+  color: #3a312a;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.fun-button:hover {
+  background: #fbf1dc;
+}
+
+.fun-button.on {
+  background: #3a312a;
+  color: #fffdf7;
+}
+
+.fun-icon {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* speech bubbles above the pins; PinTracker places them and marks the ones that would overlap */
+.bubble {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.pins.gossip .bubble {
+  display: block;
+}
+
+.bubble[data-clear='0'],
+.pins.street .bubble:not(.selected) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.bubble span {
+  position: relative;
+  display: block;
+  padding: 5px 11px;
+  border: 1.5px solid #3a312a;
+  border-radius: 14px;
+  background: #fffdf7;
+  color: #3a312a;
+  font: 600 12px Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+  transform-origin: 50% 100%;
+  animation:
+    bubble-pop 0.5s cubic-bezier(0.2, 1.5, 0.4, 1) var(--d) both,
+    bubble-bob 3.2s ease-in-out calc(var(--d) + 0.6s) infinite;
+}
+
+/* the tail of the bubble */
+.bubble span::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-right: 1.5px solid #3a312a;
+  border-bottom: 1.5px solid #3a312a;
+  background: #fffdf7;
+  transform: rotate(45deg) skew(8deg, 8deg);
+}
+
+.bubble:hover span {
+  background: #fbf1dc;
+}
+
+.bubble:hover span::after {
+  background: #fbf1dc;
+}
+
+.bubble.serious span,
+.bubble.serious span::after {
+  background: #ecebe6;
+}
+
+@keyframes bubble-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bubble-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* the card a building speaks in */
+.gossip-card,
+.mission-card {
+  position: absolute;
+  left: 50%;
+  z-index: 35;
+  width: min(370px, calc(100% - 32px));
+  box-sizing: border-box;
+  padding: 14px 16px 12px;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  transform: translateX(-50%);
+  animation: card-in 0.35s cubic-bezier(0.2, 1.3, 0.4, 1) both;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.gossip-card {
+  bottom: 48px;
+  border: 1.5px solid #3a312a;
+  background: #fffdf7;
+  color: #2b2621;
+}
+
+.gossip-card.serious {
+  background: #f1efe9;
+}
+
+.gossip-card h2,
+.mission-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.gossip-personality,
+.mission-label {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b4603f;
+}
+
+.gossip-card blockquote {
+  margin: 0 0 10px;
+  font: italic 16px/1.45 Georgia, 'Times New Roman', serif;
+}
+
+.gossip-fact {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(127, 154, 106, 0.16);
+  font-size: 12px;
+}
+
+.card-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  padding: 2px 6px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.card-close:hover {
+  opacity: 1;
+}
+
+.card-action {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 16px;
+  background: #3a312a;
+  color: #fffdf7;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card-action.quiet {
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+}
+
+/* the secret mission: a dark dossier */
+.mission-card {
+  top: 60px;
+  background: #12302d;
+  color: #f3ead6;
+}
+
+.mission-card .mission-label {
+  color: #e7c873;
+}
+
+.mission-clue {
+  margin: 4px 0 10px;
+  font: italic 16px/1.45 Georgia, 'Times New Roman', serif;
+}
+
+.mission-distance {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #c9d9cf;
+}
+
+.mission-answer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.mission-card .gossip-fact {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mission-card .card-action {
+  background: #e7c873;
+  color: #12302d;
+}
+
+.mission-card .card-action.quiet {
+  background: transparent;
+  color: #f3ead6;
+}
+
+.mission-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+/* while walking to a mission's destination */
+.walk-chip {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px 7px 14px;
+  border-radius: 20px;
+  background: #12302d;
+  color: #f3ead6;
+  font-size: 13px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transform: translateX(-50%);
+}
+
+.walk-chip button {
+  padding: 4px 12px;
+  border: 0;
+  border-radius: 14px;
+  background: #e7c873;
+  color: #12302d;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* three footsteps, lighting up one after another */
+.walk-dots {
+  width: 26px;
+  height: 6px;
+  background:
+    radial-gradient(circle, #e7c873 2.5px, transparent 3px) 0 0 / 9px 6px repeat-x;
+  animation: footsteps 0.9s steps(3) infinite;
+  -webkit-mask: linear-gradient(90deg, #000 0 33%, rgba(0, 0, 0, 0.35) 33% 100%);
+  mask: linear-gradient(90deg, #000 0 33%, rgba(0, 0, 0, 0.35) 33% 100%);
+  mask-size: 300% 100%;
+}
+
+@keyframes footsteps {
+  from {
+    mask-position: 100% 0;
+  }
+  to {
+    mask-position: -50% 0;
+  }
+}
+
+/* the found target of a mission, and pins limited to it */
+.pins.only-target .pin:not(.target) {
+  visibility: hidden;
+}
+
+.pins .pin.target {
+  background: #0f766e;
+  box-shadow: 0 0 0 3px #e7c873;
+}
+
+@media (max-width: 760px) {
+  .funbar {
+    top: auto;
+    bottom: 104px;
+  }
+
+  .fun-button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .gossip-card,
+  .mission-card {
+    top: auto;
+    bottom: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble span,
+  .gossip-card,
+  .mission-card {
+    animation: none;
+  }
+}
