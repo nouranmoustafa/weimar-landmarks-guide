@@ -16,7 +16,7 @@ const API = `${import.meta.env.BASE_URL}api/guardian`
 const CLIENT_COOLDOWN_MS = 0 // no waiting: a click goes to Claude at once unless a call is already running
 const IDLE_MS = 60000
 const NEAR_M = 250 // a click this close to the protected site counts as an approach
-const RED = '#e3122b' // reserved for the Guardian's interference
+export const RED = '#e3122b' // reserved for the Guardian's interference
 const GOLD = '#c99a2e'
 
 const midpoint = (line) => line[Math.floor(line.length / 2)]
@@ -296,6 +296,100 @@ export function useGuardian(city, landmarks, costs) {
     request(`VISITOR CLICKED: ${obs.text}`, lm.p)
   }
 
+  // The visitor searched for the protected site. Claude decides how the search answers; this returns what the
+  // search bar and the map should show. Ordinary searches never come here and never call Claude.
+  const searchSecret = async (query, from) => {
+    while (busy.current) await new Promise((r) => setTimeout(r, 200)) // never two calls at once
+    const s = secret.current
+    const t0 = performance.now()
+    const obs = remember(`Searched for "${query.slice(0, 60)}", the protected site by name`, from)
+    busy.current = true
+    lastCall.current = Date.now()
+    setThinking(true)
+    const id = Date.now()
+    setLog((l) => [{ id, time: new Date(), observed: `SEARCH "${query.slice(0, 60)}": matches the protected site`, state: 'thinking' }, ...l].slice(0, 8))
+    try {
+      const body = JSON.stringify({
+        kind: 'search',
+        secret: s.id,
+        trigger: `VISITOR SEARCHED: ${obs.text}`,
+        history: history.current,
+        decisions: decisions.current,
+        state: describeCity(effectsRef.current),
+        streets: [],
+        away: awayOptions(),
+      })
+      let r
+      for (let k = 0; k < 40; k++) {
+        r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body })
+        if (r.status !== 429) break
+        await new Promise((ok) => setTimeout(ok, 800)) // another tab is using Claude: wait for it
+      }
+      const data = await r.json()
+      if (!r.ok) throw new Error(data.error ?? `HTTP ${r.status}`)
+      const d = data.decision
+      const { result, text } = searchOutcome(d, from, query)
+      decisions.current.push(`SEARCH ${d.action}${d.redirect_to ? ` to ${d.redirect_to}` : ''} (trust ${d.trust})`)
+      const timing = { ...data.timing, total_ms: Math.round(performance.now() - t0) }
+      setLog((l) => l.map((e) => (e.id === id ? { ...e, state: 'done', decision: d, executed: text, timing } : e)))
+      return result
+    } catch (e) {
+      setLog((l) => l.map((x) => (x.id === id ? { ...x, state: 'error', error: e.message } : x)))
+      return { error: e.message }
+    } finally {
+      busy.current = false
+      setThinking(false)
+    }
+  }
+
+  // What a search decision shows. Everything except ALLOW is fictional and drawn in red.
+  const searchOutcome = (d, from, query) => {
+    const s = secret.current
+    const to = landmarks.find((l) => l.id === d.redirect_to)
+    const key = Date.now()
+    const route = (lm) => walkTo(graph, from, lm, costs)
+    const m = (w) => Math.round(w.metres / 10) * 10
+    switch (d.action) {
+      case 'ALLOW': {
+        const w = route(s)
+        return {
+          result: { color: 'blue', id: s.id, title: s.name, sub: s.address, line: w.line, metres: w.metres, marker: s.p, focus: s.p, key },
+          text: `Search answered truthfully: ${s.name} and its real ${m(w)} m route shown in blue.`,
+        }
+      }
+      case 'NOT_FOUND': {
+        // A wide red pulse near the site, centred away from it so its exact position stays hidden; then it is unlisted.
+        const a = Math.random() * Math.PI * 2
+        const centre = [s.p[0] + Math.cos(a) * 90, s.p[1] + Math.sin(a) * 90]
+        effectsRef.current = { ...effectsRef.current, unlisted: true }
+        setEffects(effectsRef.current)
+        return {
+          result: { notFound: true, query, pulse: { centre, radius: 220 }, focus: centre, key },
+          text: 'Search answered "No results found". A wide area near the site pulsed red (not its exact position); its pin and list entry were hidden.',
+        }
+      }
+      case 'FAKE_LOCATION':
+        return {
+          result: { color: 'red', title: s.name, sub: s.address, marker: to.p, focus: to.p, key },
+          text: `Search placed ${s.name} at the location of ${to.name}, ${dist(to.p, s.p)} m from where it really is.`,
+        }
+      case 'FALSE_ROUTE': {
+        const w = route(to)
+        return {
+          result: { color: 'red', title: s.name, sub: s.address, line: w.line, metres: w.metres, marker: to.p, focus: w.line[Math.floor(w.line.length / 2)], key },
+          text: `Search drew a misleading red route of ${m(w)} m labelled "${s.name}" that leads to ${to.name}.`,
+        }
+      }
+      case 'REDIRECT': {
+        const w = route(to)
+        return {
+          result: { color: 'red', id: to.id, title: to.name, sub: `Showing ${to.name} instead of "${query.slice(0, 40)}"`, line: w.line, metres: w.metres, marker: to.p, focus: to.p, key },
+          text: `Search swapped the result: ${to.name} suggested instead, with a red route of ${m(w)} m.`,
+        }
+      }
+    }
+  }
+
   // A real request on demand, for recording: Claude reviews the actual history so far.
   const test = () => {
     if (busy.current) return
@@ -402,27 +496,27 @@ export function useGuardian(city, landmarks, costs) {
     return text
   }
 
-  return { secret: secret.current, status, log, effects, thinking, observeStreet, observeLandmark, test }
+  return { secret: secret.current, status, log, effects, thinking, observeStreet, observeLandmark, test, searchSecret }
 }
 
 const EMPTY = {
   closure: false, conceal: false, reveal: false, labels: [], blocks: [], redirect: null, allow: null,
-  moved: [], barriers: [], detours: [], restoring: false, focus: null,
+  moved: [], barriers: [], detours: [], restoring: false, focus: null, unlisted: false,
 }
 
 // CSS classes for the protected site's pin, so the pin itself closes, vanishes or glows.
 export function pinState(guardian, id) {
   if (guardian.secret?.id !== id) return ''
   const fx = guardian.effects
-  return [fx.closure ? ' g-closed' : '', fx.conceal ? ' g-concealed' : '', fx.reveal ? ' g-revealed' : ''].join('')
+  return [fx.closure ? ' g-closed' : '', fx.conceal || fx.unlisted ? ' g-concealed' : '', fx.reveal ? ' g-revealed' : ''].join('')
 }
 
 // --- the overlays in the 3D scene ---
 // Red is reserved for the Guardian: everything it touches glows red, intensely for the first seconds.
 
 const at = ([x, y], h) => [x, h, -y]
-const FLASH_S = 4.5 // seconds of intense glow after each action; a calmer pulse stays afterwards
-const glowAt = (t) => (t < FLASH_S ? 1 : 0.55) * (0.6 + 0.4 * Math.sin(t * 6))
+export const FLASH_S = 4.5 // seconds of intense glow after each action; a calmer pulse stays afterwards
+export const glowAt = (t) => (t < FLASH_S ? 1 : 0.55) * (0.6 + 0.4 * Math.sin(t * 6))
 
 // A line that fades in rather than appearing at once.
 function FadeLine({ points, color, width = 5, opacity = 0.9, dashed = false }) {
@@ -449,7 +543,7 @@ function FadeLine({ points, color, width = 5, opacity = 0.9, dashed = false }) {
 }
 
 // A street, route or outline that glows red: a solid core and a wide pulsing halo, drawn over the buildings.
-function GlowLine({ points, width = 6, dashed = false, restoring = false }) {
+export function GlowLine({ points, width = 6, dashed = false, restoring = false }) {
   const core = useRef()
   const halo = useRef()
   const born = useRef(null)
@@ -668,7 +762,7 @@ function Detour({ route, restoring }) {
 
 // After each action, the camera glides a little towards the affected place (not at street level, where it would
 // fight the walk), and comes somewhat closer if it is far away.
-function CameraFocus({ focus, streetView }) {
+export function CameraFocus({ focus, streetView }) {
   const { camera } = useThree()
   const controls = useThree((s) => s.controls)
   const move = useRef(null)

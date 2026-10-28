@@ -14,7 +14,11 @@ import { resolve } from 'node:path'
 export const ACTIONS = [
   'ALLOW', 'FAKE_CLOSURE', 'MISLABEL', 'REDIRECT', 'CONCEAL', 'BLOCK', 'REVEAL',
   'MOVE_BUILDING', 'RAISE_BARRIER', 'CREATE_DETOUR', 'RESTORE_CITY',
+  'NOT_FOUND', 'FAKE_LOCATION', 'FALSE_ROUTE',
 ]
+// When the visitor searches for the protected site, only these five answers are allowed.
+const SEARCH_ACTIONS = ['NOT_FOUND', 'FAKE_LOCATION', 'FALSE_ROUTE', 'REDIRECT', 'ALLOW']
+const SEARCH_ONLY = ['NOT_FOUND', 'FAKE_LOCATION', 'FALSE_ROUTE']
 const STREET_ACTIONS = ['MISLABEL', 'BLOCK', 'MOVE_BUILDING', 'RAISE_BARRIER', 'CREATE_DETOUR']
 const TIMEOUT_MS = 30000
 
@@ -24,6 +28,9 @@ ALLOW change nothing (far visitors, or to test them) | FAKE_CLOSURE "closed" not
 REDIRECT route to landmark (to) | CONCEAL hide the site | BLOCK mark street restricted | MOVE_BUILDING slide the building beside a street into it |
 RAISE_BARRIER barrier across street | CREATE_DETOUR close street, detour around it (not dead ends) | RESTORE_CITY undo your physical changes | REVEAL show the site to a visitor who earned trust.
 Stay subtle when they are far. Escalate as they approach or ignore you; once close or persistent prefer MOVE_BUILDING, RAISE_BARRIER, CREATE_DETOUR. Vary actions.
+If the visitor SEARCHES for your site, answer the search with ONE of: NOT_FOUND "no results" | FAKE_LOCATION show the site at
+another landmark's place (to) | FALSE_ROUTE misleading route towards another landmark (to) | REDIRECT suggest another landmark (to) |
+ALLOW show the true site and route (only for visitors you trust).
 street: one of the offered street ids, else null. Unused fields null. reason: max 12 words.`
 
 function loadIds(root) {
@@ -67,13 +74,16 @@ function prompt(body, ids, streets, awayIds) {
     `CITY: ${clip(body.state, 250) || 'untouched'}`,
     `STREETS: ${streets.map((s) => `${s.id} (${s.d} m${s.b !== null ? ', movable building' : ''}${s.w ? '' : ', dead end'})`).join(', ')}`,
     `REDIRECT TO: ${awayIds.join(', ')}`,
+    ...(body.kind === 'search' ? ['THIS IS A SEARCH FOR YOUR SITE: answer with NOT_FOUND, FAKE_LOCATION, FALSE_ROUTE, REDIRECT or ALLOW.'] : []),
   ].join('\n')
 }
 
 // Check the model's answer against what was offered for this click. Anything else is rejected, not repaired.
-function validate(out, streets, awayIds) {
+function validate(out, streets, awayIds, search = false) {
   if (!out || typeof out !== 'object') throw new Error('no structured answer')
   if (!ACTIONS.includes(out.action)) throw new Error(`unknown action ${out.action}`)
+  if (search ? !SEARCH_ACTIONS.includes(out.action) : SEARCH_ONLY.includes(out.action))
+    throw new Error(`${out.action} is not allowed for a ${search ? 'search' : 'map click'}`)
   const street = int(out.street)
   if (street !== null && !streets.some((s) => s.id === street)) throw new Error(`street ${street} was not offered`)
   const decision = {
@@ -92,7 +102,8 @@ function validate(out, streets, awayIds) {
     if (decision.target_building === null) throw new Error(`street ${street} has no movable building`)
   }
   if (decision.action === 'MISLABEL' && !decision.fake_name) throw new Error('MISLABEL without a name')
-  if (decision.action === 'REDIRECT' && !decision.redirect_to) throw new Error('REDIRECT without an offered landmark')
+  if (['REDIRECT', 'FAKE_LOCATION', 'FALSE_ROUTE'].includes(decision.action) && !decision.redirect_to)
+    throw new Error(`${decision.action} without an offered landmark`)
   return decision
 }
 
@@ -223,7 +234,7 @@ export default function guardian() {
           if (!proc) proc = startProcess(jsonSchema)
           refill()
           const { out, model, timing } = await ask(proc, prompt(body, ids, streets, awayIds))
-          const decision = validate(out, streets, awayIds)
+          const decision = validate(out, streets, awayIds, body.kind === 'search')
           send(200, { decision, model, ms: timing.model_ms, timing: { ...timing, warm, server_ms: Math.round(performance.now() - t0) } })
         } catch (e) {
           send(502, { error: e.message })

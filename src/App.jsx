@@ -11,6 +11,7 @@ import {
   MINUTES,
   SPEED_M_PER_MIN,
   buildingGrid,
+  snapToStreet,
 } from './reach.js'
 import {
   areaGeometry,
@@ -58,6 +59,7 @@ import LandmarkBuildings from './LandmarkBuildings.jsx'
 import LandmarkList from './LandmarkList.jsx'
 import Flyer, { FlyerPreview } from './Flyer.jsx'
 import { GuardianLayer, GuardianLog, pinState, useGuardian } from './Guardian.jsx'
+import { SearchBar, SearchLayer } from './Search.jsx'
 
 const ATTRIBUTION =
   'Buildings: 3D building models LoD2 © GDI-Th (dl-de/by-2-0). Land use and pedestrian network: Egor Gaydukov, InfAU, Bauhaus-Universität Weimar. Census grid: Zensus 2022, © Statistische Ämter des Bundes und der Länder (dl-de/by-2-0).'
@@ -85,6 +87,11 @@ export default function App() {
   const [reach, setReach] = useState(null)
   const [busy, setBusy] = useState(false)
   const [panelOpen, setPanelOpen] = useState(true)
+  // --- search ---
+  const [stopPlaces, setStopPlaces] = useState([])
+  const [here, setHere] = useState(null) // the visitor's last clicked point: where search routes start
+  const [searchResult, setSearchResult] = useState(null)
+  const [searching, setSearching] = useState(false)
   const [tab, setTab] = useState(ORIGINAL_FEATURES ? 'reach' : 'landmarks')
   const [landmarks, setLandmarks] = useState(null)
   const [checked, setChecked] = useState(null)
@@ -137,6 +144,19 @@ export default function App() {
           ([raw, stops]) => {
             setChecked(raw.checked)
             setLandmarks(prepareLandmarks(raw, { graph, buildings, project }, stops))
+            // Bus stops are named after Weimar's streets and squares: searchable places, one per name, on the kit's streets.
+            const seen = new Set()
+            const places = []
+            for (const f of stops.features) {
+              const name = f.properties.name
+              if (!name || seen.has(name)) continue
+              const p = project(f.geometry.coordinates)
+              const snap = snapToStreet(graph, p)
+              if (snap.distance > 80) continue
+              seen.add(name)
+              places.push({ kind: 'stop', key: 'stop-' + name, name, alt: [], p, target: { p, street: snap } })
+            }
+            setStopPlaces(places)
           },
         )
       })
@@ -154,6 +174,7 @@ export default function App() {
 
   const startWalk = (point) => {
     guardian.observeStreet(point)
+    setHere(point)
     if (!ORIGINAL_FEATURES) return // the click still reaches the Guardian, but no walking reach is drawn
     lastId.current += 1
     setBusy(true)
@@ -190,6 +211,45 @@ export default function App() {
   const tour = useMemo(() => (city && landmarks ? landmarkTour(city.graph, landmarks) : null), [city, landmarks])
   // The Guardian watches street and landmark clicks and manipulates the map in response.
   const guardian = useGuardian(city, landmarks, costs)
+  // Searchable places: every landmark (English and German name, address) and the bus stops.
+  // A landmark the Guardian has hidden can no longer be found.
+  const secretHidden = guardian.effects.conceal || guardian.effects.unlisted
+  const places = useMemo(
+    () => [
+      ...(landmarks ?? [])
+        .filter((lm) => !(secretHidden && lm.id === guardian.secret?.id))
+        .map((lm) => ({ kind: 'landmark', key: lm.id, id: lm.id, number: lm.number, name: lm.name, alt: [lm.nameDe, lm.address], p: lm.p, target: lm })),
+      ...stopPlaces,
+    ],
+    [landmarks, stopPlaces, secretHidden, guardian.secret],
+  )
+  const markt = landmarks?.find((lm) => lm.id === 'markt')
+  // An ordinary search gets its real route in blue at once. A search for the protected site is answered by the
+  // Guardian through Claude, unless the AI is not running (the published site): then it is an ordinary search.
+  const searchFor = async (p, query) => {
+    if (view?.street) backToOverview()
+    if (!p) return setSearchResult({ notFound: true, query, key: Date.now() })
+    const from = here ?? markt.p
+    if (p.kind === 'landmark' && p.id === guardian.secret?.id && guardian.status === 'live') {
+      setSearchResult(null)
+      setSearching(true)
+      const r = await guardian.searchSecret(query || p.name, from)
+      setSearching(false)
+      if (!r.error) return setSearchResult({ ...r, guardian: r.color === 'red' || !!r.notFound })
+    }
+    const w = walkTo(city.graph, from, p.target, costs)
+    setSearchResult({
+      color: 'blue',
+      id: p.kind === 'landmark' ? p.id : null,
+      title: p.name,
+      sub: p.kind === 'stop' ? 'Bus stop' : p.alt[1],
+      line: w.line,
+      metres: w.metres,
+      marker: p.p,
+      focus: p.p,
+      key: Date.now(),
+    })
+  }
   // --- gossip and secret missions ---
   const gossipLandmark = landmarks?.find((lm) => lm.id === gossipId) ?? null
   const missionTarget = mission && (mission.revealed || mission.showWay) ? mission.lm.id : null
@@ -273,6 +333,7 @@ export default function App() {
             selected={landmark}
             view={view}
             tour={showTour && !view?.street ? tour : null}
+            search={searchResult}
             bubbles={bubbles}
             gossipOn={gossipOn}
             mission={mission}
@@ -366,6 +427,15 @@ export default function App() {
 
       {/* The left column: the landmarks panel (folds with its – button) and the Guardian's log beneath it. */}
       <div className="left-col">
+      <SearchBar
+        places={places}
+        onPick={searchFor}
+        onClear={() => setSearchResult(null)}
+        onOpen={pickLandmark}
+        busy={searching}
+        result={searchResult}
+        fromName={here ? 'your selected point' : 'the Market Square'}
+      />
       <aside className={panelOpen ? 'panel' : 'panel folded'}>
         <div className="tabs" role="tablist">
           {ORIGINAL_FEATURES && (
@@ -387,7 +457,7 @@ export default function App() {
             <TourCard tour={tour} show={showTour} onToggle={toggleTour} onSelect={pickLandmark} />
             <LandmarkList
               // a landmark the Guardian has concealed disappears from the list as well
-              landmarks={guardian.effects.conceal ? landmarks?.filter((lm) => lm.id !== guardian.secret?.id) : landmarks}
+              landmarks={secretHidden ? landmarks?.filter((lm) => lm.id !== guardian.secret?.id) : landmarks}
               selected={selected}
               onSelect={pickLandmark}
               today={today}
@@ -418,7 +488,7 @@ export default function App() {
   )
 }
 
-function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tour, bubbles, gossipOn, mission, guardian }) {
+function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tour, bubbles, gossipOn, mission, guardian, search }) {
   const [x0, y0, x1, y1] = city.bounds
   const margin = 300
   const ground = [x1 - x0 + 2 * margin, y1 - y0 + 2 * margin]
@@ -520,6 +590,7 @@ function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tou
         </mesh>
       )}
 
+      <SearchLayer result={search} streetView={!!view?.street} />
       {landmarks && <GuardianLayer guardian={guardian} buildings={city.buildings} geometry={geometry} ranges={ranges} gradient={gradient} streetView={!!view?.street} />}
       {landmarks && <PinTracker landmarks={landmarks} pins={pins} bubbles={bubbles} gossipOn={gossipOn} />}
 
