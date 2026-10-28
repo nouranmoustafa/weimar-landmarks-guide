@@ -70,6 +70,8 @@ const SEARCH_RADIUS = 110 // metres: the smallest search area of a secret missio
 const SEARCH_SUSPECTS = 3 // landmarks that must lie inside the search area, the answer included
 const SEARCH_MARGIN = 25 // metres: how far inside the circle they must be
 const STREET_FOV = 65
+// The Guardian version hides the original map's walking reach, gossip and missions. Set to true to bring them back.
+const ORIGINAL_FEATURES = false
 
 const load = (file) =>
   fetch(`${import.meta.env.BASE_URL}data/${file}`).then((r) => {
@@ -82,7 +84,8 @@ export default function App() {
   const [error, setError] = useState(null)
   const [reach, setReach] = useState(null)
   const [busy, setBusy] = useState(false)
-  const [tab, setTab] = useState('reach')
+  const [panelOpen, setPanelOpen] = useState(true)
+  const [tab, setTab] = useState(ORIGINAL_FEATURES ? 'reach' : 'landmarks')
   const [landmarks, setLandmarks] = useState(null)
   const [checked, setChecked] = useState(null)
   const [selected, setSelected] = useState(null)
@@ -151,6 +154,7 @@ export default function App() {
 
   const startWalk = (point) => {
     guardian.observeStreet(point)
+    if (!ORIGINAL_FEATURES) return // the click still reaches the Guardian, but no walking reach is drawn
     lastId.current += 1
     setBusy(true)
     worker.current.postMessage({ id: lastId.current, point })
@@ -321,7 +325,7 @@ export default function App() {
         ))}
       </div>
 
-      {landmarks && !landmark && !walking && <FunBar gossipOn={gossipOn} onGossip={toggleGossip} onSuspicious={newMission} />}
+      {ORIGINAL_FEATURES && landmarks && !landmark && !walking && <FunBar gossipOn={gossipOn} onGossip={toggleGossip} onSuspicious={newMission} />}
       {gossipLandmark && (
         <GossipCard
           lm={gossipLandmark}
@@ -360,30 +364,40 @@ export default function App() {
         />
       )}
 
-      <aside className="panel">
+      {/* The left column: the landmarks panel (folds with its – button) and the Guardian's log beneath it. */}
+      <div className="left-col">
+      <aside className={panelOpen ? 'panel' : 'panel folded'}>
         <div className="tabs" role="tablist">
-          <button role="tab" aria-selected={tab === 'reach'} onClick={() => setTab('reach')}>
-            Walking reach
-          </button>
+          {ORIGINAL_FEATURES && (
+            <button role="tab" aria-selected={tab === 'reach'} onClick={() => setTab('reach')}>
+              Walking reach
+            </button>
+          )}
           <button role="tab" aria-selected={tab === 'landmarks'} onClick={() => setTab('landmarks')}>
             Landmarks
           </button>
+          <button className="fold" onClick={() => setPanelOpen(!panelOpen)} aria-expanded={panelOpen} title={panelOpen ? 'Minimise' : 'Open'}>
+            {panelOpen ? '–' : '+'}
+          </button>
         </div>
-        {tab === 'reach' ? (
+        {panelOpen && (tab === 'reach' ? (
           <ReachPanel reach={reach} busy={busy} tour={tour} showTour={showTour} onToggleTour={toggleTour} />
         ) : (
           <>
             <TourCard tour={tour} show={showTour} onToggle={toggleTour} onSelect={pickLandmark} />
             <LandmarkList
-              landmarks={landmarks}
+              // a landmark the Guardian has concealed disappears from the list as well
+              landmarks={guardian.effects.conceal ? landmarks?.filter((lm) => lm.id !== guardian.secret?.id) : landmarks}
               selected={selected}
               onSelect={pickLandmark}
               today={today}
               checked={checked}
             />
           </>
-        )}
+        ))}
       </aside>
+      <GuardianLog guardian={guardian} />
+      </div>
 
       {view?.street && (
         <button className="overview-button" onClick={backToOverview}>
@@ -397,7 +411,6 @@ export default function App() {
       {!landmark && (
         <Legend buildings={city?.buildings} showLandmark={tab === 'landmarks'} showTour={showTour} showMission={!!mission} />
       )}
-      <GuardianLog guardian={guardian} />
       <p className="attribution">
         {ATTRIBUTION} {landmarks && ATTRIBUTION_LANDMARKS}
       </p>
@@ -493,6 +506,7 @@ function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tou
           reach={reach}
           selected={selected}
           onClick={click}
+          hidden={guardian.effects.conceal ? guardian.secret?.id : null}
         />
       )}
 
@@ -502,11 +516,11 @@ function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tou
       {reach && (
         <mesh position={[reach.start[0], 6, -reach.start[1]]}>
           <sphereGeometry args={[6, 24, 12]} />
-          <meshLambertMaterial color="#c2410c" />
+          <meshLambertMaterial color={ROUTE} />
         </mesh>
       )}
 
-      {landmarks && <GuardianLayer guardian={guardian} />}
+      {landmarks && <GuardianLayer guardian={guardian} buildings={city.buildings} geometry={geometry} ranges={ranges} gradient={gradient} streetView={!!view?.street} />}
       {landmarks && <PinTracker landmarks={landmarks} pins={pins} bubbles={bubbles} gossipOn={gossipOn} />}
 
       {mission && !view?.street && !mission.revealed && !mission.showWay && !mission.done && (
@@ -976,6 +990,7 @@ function Legend({ buildings, showLandmark, showTour, showMission }) {
           </li>
         ))}
       </ul>
+      {ORIGINAL_FEATURES && <>
       <h2>Reached on foot</h2>
       <ul>
         {MINUTES.map((m, k) => (
@@ -985,6 +1000,7 @@ function Legend({ buildings, showLandmark, showTour, showMission }) {
           </li>
         ))}
       </ul>
+      </>}
       {showMission && (
         <>
           <h2>Secret mission</h2>

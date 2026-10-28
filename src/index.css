@@ -428,7 +428,7 @@ body {
 
 .pin:hover,
 .pin.selected {
-  background: #c2410c;
+  background: #1a73e8;
 }
 
 .pins {
@@ -455,7 +455,7 @@ body {
 .pins .pin:hover,
 .pins .pin.selected {
   border-color: #fbe9df;
-  box-shadow: 0 0 0 3px #c2410c;
+  box-shadow: 0 0 0 3px #1a73e8;
 }
 
 /* Panels sit above the pins. */
@@ -615,7 +615,7 @@ body {
 .face h3 {
   margin: 0 0 6px;
   font-size: 15px;
-  color: #c2410c;
+  color: #1a73e8;
 }
 
 .face h3:not(:first-child) {
@@ -728,7 +728,7 @@ body {
   background: #fbf8f1;
   font-size: 12px;
   font-weight: 600;
-  color: #c2410c;
+  color: #1a73e8;
 }
 
 .photo-main {
@@ -762,7 +762,7 @@ body {
 }
 
 .thumb.on {
-  border-color: #c2410c;
+  border-color: #1a73e8;
 }
 
 .thumb img {
@@ -1307,7 +1307,7 @@ body {
   max-width: calc(100% - 24px);
   background: rgba(24, 22, 20, 0.9);
   color: #e8e2d6;
-  border: 1px solid rgba(155, 28, 28, 0.55);
+  border: 1px solid rgba(227, 18, 43, 0.55);
   border-radius: 6px;
   font: 11px/1.45 ui-monospace, 'Cascadia Mono', Consolas, monospace;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
@@ -1376,7 +1376,7 @@ body {
 
 .g-tools button {
   padding: 3px 8px;
-  border: 1px solid #9b1c1c;
+  border: 1px solid #e3122b;
   border-radius: 3px;
   background: transparent;
   color: #f0b4b4;
@@ -1473,8 +1473,8 @@ body {
 .g-closure,
 .g-restricted {
   background: rgba(250, 246, 240, 0.94);
-  color: #9b1c1c;
-  border: 1.5px solid #9b1c1c;
+  color: #e3122b;
+  border: 1.5px solid #e3122b;
 }
 
 .g-label {
@@ -1506,8 +1506,8 @@ body {
 
 /* The protected site's own pin reacts too. */
 .pin.g-closed {
-  border-color: #9b1c1c;
-  box-shadow: 0 0 0 3px rgba(155, 28, 28, 0.35);
+  border-color: #e3122b;
+  box-shadow: 0 0 0 3px rgba(227, 18, 43, 0.35);
 }
 
 .pin.g-concealed {
@@ -1534,4 +1534,55 @@ body {
   .legend {
     max-height: calc(100% - 340px);
   }
+}
+
+.g-time {
+  color: #8f867a;
+}
+
+/* The left column: the landmarks panel, foldable with its – button, and the Guardian's log beneath it. */
+.left-col {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 340px;
+  max-width: calc(100% - 24px);
+  max-height: calc(100% - 56px);
+}
+
+.left-col .panel {
+  position: static;
+  width: auto;
+  max-width: none;
+  max-height: none;
+  min-height: 0;
+  flex: 0 1 auto;
+}
+
+.left-col .panel.folded {
+  flex: none;
+  padding-bottom: 4px;
+}
+
+.left-col .panel.folded .tabs {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.tabs .fold {
+  flex: none;
+  width: 30px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.left-col .g-log {
+  position: static;
+  width: auto;
+  max-width: none;
+  flex: none;
 }

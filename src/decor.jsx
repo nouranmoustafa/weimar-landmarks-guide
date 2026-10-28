@@ -93,7 +93,7 @@ const STROLLERS_PER_LANDMARK = 18 // walking about near a landmark
 const STANDERS_PER_LANDMARK = 8 // standing in front of it, looking at it
 const NEAR_LANDMARK = 120 // metres: where strollers start
 const STAY_NEAR = 180 // metres: strollers turn back towards their landmark beyond this
-const ACCENTS = ['#b4603f', '#7f9a6a', '#c9a24a', '#5f7385', '#a7695f']
+const ACCENTS = ['#5f7385', '#7f9a6a', '#c9a24a', '#8a8f99', '#6b8fb3'] // no reds: red belongs to the Guardian
 
 // Limbs hang from a pivot and swing as the figure walks: [pivot height, sideways offset, length, swing].
 const LIMBS = [

@@ -7,7 +7,8 @@ import { INK, REACH_COLORS, ROUTE } from './palette.js'
 
 // The landmarks' own buildings, drawn with illustrated facades after their photos.
 // Reached by a walk, they take a light tint of that walk's blue; the chosen landmark gets an orange outline.
-export default function LandmarkBuildings({ landmarks, buildings, gradient, reach, selected, onClick }) {
+// A landmark the Guardian has concealed (`hidden`) is not drawn.
+export default function LandmarkBuildings({ landmarks, buildings, gradient, reach, selected, onClick, hidden }) {
   const parts = useMemo(
     () => landmarks.flatMap((lm) => landmarkFacades(lm, buildings, toShape, gradient).map((p) => ({ ...p, lm }))),
     [landmarks, buildings, gradient],
@@ -36,7 +37,7 @@ export default function LandmarkBuildings({ landmarks, buildings, gradient, reac
 
   return (
     <group>
-      {parts.map((p) => (
+      {parts.filter((p) => p.lm.id !== hidden).map((p) => (
         <group key={`${p.lm.id}-${p.index}`}>
           <mesh geometry={p.geometry} material={p.materials} onClick={onClick} />
           <lineSegments geometry={p.edges}>
