@@ -395,7 +395,7 @@ export function GuardianLog({ guardian }) {
             <dl key={e.id} className={`g-entry ${e.state}`}>
               <dt>OBSERVED</dt>
               <dd>
-                <time>{e.time.toLocaleTimeString('en-GB')}</time> {e.observed.replace(/^[A-Z ]+: /, '')}
+                <time>{e.time.toLocaleTimeString('en-GB')}</time> {e.observed.replace(/^VISITOR CLICKED: /, '').replace(/^AUTONOMOUS REVIEW: /, 'AUTONOMOUS (no input): ')}
               </dd>
               {e.state === 'thinking' && <dd className="g-wait">Sent to Claude Haiku…</dd>}
               {e.state === 'error' && <dd className="g-err">No decision: {e.error}. Map unchanged.</dd>}
