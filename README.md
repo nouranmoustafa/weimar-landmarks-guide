@@ -79,3 +79,9 @@ Attribution line, as shown on the map:
 2. I decided:
 3. The agent did: it read the city kit, then wrote the 3D city view, the walking-reach and resident calculations, the panel, the legend and this README; for the landmarks tab it gathered bus stops from OpenStreetMap, opening hours from official flyers and photos from Wikimedia Commons, wrote the history texts, built the street view, the walk from the bus and the folding flyer, and tested the result in a browser.
 4. I checked:
+
+## The Guardian of Weimar (AI in Design, part 2)
+
+An intelligence inside the map secretly protects one landmark, chosen at random each session. It watches which streets (click the ground) and landmarks (pins or the list) the visitor picks, sends those observations to Claude Haiku, and acts on the map: ALLOW, FAKE_CLOSURE, MISLABEL, REDIRECT, CONCEAL, BLOCK or REVEAL. Its overlays are fictional and marked "simulation"; the real data is never changed. The panel "GUARDIAN SYSTEM // ACTIVITY LOG" shows what it observed, its assessment, its decision and what it changed.
+
+The AI runs only on localhost: `npm run dev` adds a local endpoint (`server/guardian.js`) that calls the Claude Code CLI you are logged in to (`claude -p --model haiku --effort low`, no tools, no MCP, no saved session, structured JSON checked against the real street and landmark ids). The published GitHub Pages site has no AI and says so in the log.

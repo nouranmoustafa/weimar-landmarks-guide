@@ -57,6 +57,7 @@ import { People, StreetLights } from './decor.jsx'
 import LandmarkBuildings from './LandmarkBuildings.jsx'
 import LandmarkList from './LandmarkList.jsx'
 import Flyer, { FlyerPreview } from './Flyer.jsx'
+import { GuardianLayer, GuardianLog, pinState, useGuardian } from './Guardian.jsx'
 
 const ATTRIBUTION =
   'Buildings: 3D building models LoD2 © GDI-Th (dl-de/by-2-0). Land use and pedestrian network: Egor Gaydukov, InfAU, Bauhaus-Universität Weimar. Census grid: Zensus 2022, © Statistische Ämter des Bundes und der Länder (dl-de/by-2-0).'
@@ -149,6 +150,7 @@ export default function App() {
   }, [])
 
   const startWalk = (point) => {
+    guardian.observeStreet(point)
     lastId.current += 1
     setBusy(true)
     worker.current.postMessage({ id: lastId.current, point })
@@ -161,6 +163,12 @@ export default function App() {
     setTab('landmarks')
     setSelected(id)
     setView({ ...streetView(lm), street: true, key: Date.now() })
+  }
+
+  // A landmark the visitor chose themselves, from a pin or a list: the Guardian sees it.
+  const pickLandmark = (id) => {
+    guardian.observeLandmark(id)
+    selectLandmark(id)
   }
 
   const backToOverview = () => {
@@ -176,6 +184,8 @@ export default function App() {
 
   // One round walk past all the landmarks, worked out once the landmarks have loaded.
   const tour = useMemo(() => (city && landmarks ? landmarkTour(city.graph, landmarks) : null), [city, landmarks])
+  // The Guardian watches street and landmark clicks and manipulates the map in response.
+  const guardian = useGuardian(city, landmarks, costs)
   // --- gossip and secret missions ---
   const gossipLandmark = landmarks?.find((lm) => lm.id === gossipId) ?? null
   const missionTarget = mission && (mission.revealed || mission.showWay) ? mission.lm.id : null
@@ -262,6 +272,7 @@ export default function App() {
             bubbles={bubbles}
             gossipOn={gossipOn}
             mission={mission}
+            guardian={guardian}
           />
         </Canvas>
       ) : (
@@ -282,10 +293,10 @@ export default function App() {
           <div key={lm.id}>
             <button
               ref={(el) => (el ? pins.current.set(lm.id, el) : pins.current.delete(lm.id))}
-              className={`pin${lm.id === selected ? ' selected' : ''}${lm.id === missionTarget ? ' target' : ''}`}
+              className={`pin${lm.id === selected ? ' selected' : ''}${lm.id === missionTarget ? ' target' : ''}${pinState(guardian, lm.id)}`}
               onClick={() => {
                 setPreview(null)
-                selectLandmark(lm.id)
+                pickLandmark(lm.id)
               }}
               onMouseEnter={(e) => showPreview(lm.id, e.currentTarget)}
               onMouseLeave={() => setPreview(null)}
@@ -362,11 +373,11 @@ export default function App() {
           <ReachPanel reach={reach} busy={busy} tour={tour} showTour={showTour} onToggleTour={toggleTour} />
         ) : (
           <>
-            <TourCard tour={tour} show={showTour} onToggle={toggleTour} onSelect={selectLandmark} />
+            <TourCard tour={tour} show={showTour} onToggle={toggleTour} onSelect={pickLandmark} />
             <LandmarkList
               landmarks={landmarks}
               selected={selected}
-              onSelect={selectLandmark}
+              onSelect={pickLandmark}
               today={today}
               checked={checked}
             />
@@ -386,6 +397,7 @@ export default function App() {
       {!landmark && (
         <Legend buildings={city?.buildings} showLandmark={tab === 'landmarks'} showTour={showTour} showMission={!!mission} />
       )}
+      <GuardianLog guardian={guardian} />
       <p className="attribution">
         {ATTRIBUTION} {landmarks && ATTRIBUTION_LANDMARKS}
       </p>
@@ -393,7 +405,7 @@ export default function App() {
   )
 }
 
-function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tour, bubbles, gossipOn, mission }) {
+function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tour, bubbles, gossipOn, mission, guardian }) {
   const [x0, y0, x1, y1] = city.bounds
   const margin = 300
   const ground = [x1 - x0 + 2 * margin, y1 - y0 + 2 * margin]
@@ -494,6 +506,7 @@ function City({ city, reach, onGroundClick, landmarks, pins, selected, view, tou
         </mesh>
       )}
 
+      {landmarks && <GuardianLayer guardian={guardian} />}
       {landmarks && <PinTracker landmarks={landmarks} pins={pins} bubbles={bubbles} gossipOn={gossipOn} />}
 
       {mission && !view?.street && !mission.revealed && !mission.showWay && !mission.done && (

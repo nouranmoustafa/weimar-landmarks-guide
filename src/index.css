@@ -1295,3 +1295,243 @@ body {
     animation: none;
   }
 }
+
+/* --- The Guardian: activity log and its fictional map overlays --- */
+
+.g-log {
+  position: absolute;
+  right: 12px;
+  bottom: 34px;
+  z-index: 31;
+  width: 340px;
+  max-width: calc(100% - 24px);
+  background: rgba(24, 22, 20, 0.9);
+  color: #e8e2d6;
+  border: 1px solid rgba(155, 28, 28, 0.55);
+  border-radius: 6px;
+  font: 11px/1.45 ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.g-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0.08em;
+  text-align: left;
+  cursor: pointer;
+}
+
+.g-caret {
+  margin-left: auto;
+}
+
+.g-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6b6359;
+}
+
+.g-dot.live {
+  background: #b33a3a;
+}
+
+.g-dot.thinking {
+  background: #e05252;
+  animation: g-blink 0.9s ease-in-out infinite;
+}
+
+@keyframes g-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.g-body {
+  max-height: 42vh;
+  overflow-y: auto;
+  padding: 0 10px 8px;
+}
+
+.g-note {
+  margin: 0 0 6px;
+  color: #c8bfb0;
+}
+
+.g-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #a39a8c;
+}
+
+.g-tools button {
+  padding: 3px 8px;
+  border: 1px solid #9b1c1c;
+  border-radius: 3px;
+  background: transparent;
+  color: #f0b4b4;
+  font: inherit;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.g-tools button:disabled {
+  opacity: 0.4;
+  cursor: wait;
+}
+
+.g-entry {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 2px 8px;
+  margin: 0 0 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(232, 226, 214, 0.12);
+  animation: g-in 0.6s ease-out;
+}
+
+.g-entry dt {
+  color: #8f867a;
+  letter-spacing: 0.06em;
+}
+
+.g-entry dd {
+  margin: 0;
+}
+
+.g-entry time,
+.g-entry i {
+  color: #8f867a;
+}
+
+.g-wait,
+.g-err {
+  grid-column: 1 / -1;
+  color: #a39a8c;
+}
+
+.g-err {
+  color: #e7a0a0;
+}
+
+.g-action {
+  color: #f07a7a;
+  letter-spacing: 0.08em;
+}
+
+.g-secret {
+  margin-top: 4px;
+  color: #8f867a;
+}
+
+.g-secret summary {
+  cursor: pointer;
+}
+
+.g-foot {
+  margin: 6px 0 0;
+  color: #6f675c;
+  font-size: 10px;
+}
+
+@keyframes g-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+}
+
+/* Signs placed in the 3D scene. Each says "simulation" so nobody mistakes it for real information. */
+.g-sign {
+  padding: 3px 8px 2px;
+  border-radius: 2px;
+  font: 600 11px/1.2 ui-monospace, Consolas, monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  animation: g-fade 2.4s ease-out;
+}
+
+.g-sign small {
+  display: block;
+  font-size: 8px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.g-closure,
+.g-restricted {
+  background: rgba(250, 246, 240, 0.94);
+  color: #9b1c1c;
+  border: 1.5px solid #9b1c1c;
+}
+
+.g-label {
+  background: #1d3a5f;
+  color: #fff;
+  border: 1px solid #fff;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.g-route {
+  background: rgba(24, 22, 20, 0.85);
+  color: #f0b4b4;
+}
+
+.g-reveal {
+  background: rgba(24, 22, 20, 0.9);
+  color: #f2cf73;
+  border: 1px solid #c99a2e;
+  box-shadow: 0 0 18px rgba(201, 154, 46, 0.7);
+}
+
+@keyframes g-fade {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+/* The protected site's own pin reacts too. */
+.pin.g-closed {
+  border-color: #9b1c1c;
+  box-shadow: 0 0 0 3px rgba(155, 28, 28, 0.35);
+}
+
+.pin.g-concealed {
+  opacity: 0 !important;
+  pointer-events: none;
+  transition: opacity 3s;
+}
+
+.pin.g-revealed {
+  background: #c99a2e;
+  box-shadow: 0 0 14px 4px rgba(201, 154, 46, 0.8);
+}
+
+@media (max-width: 700px) {
+  .g-log {
+    bottom: auto;
+    top: 64px;
+    width: 280px;
+  }
+}
+
+/* Leave room under the legend for the Guardian's log on wide screens. */
+@media (min-width: 701px) {
+  .legend {
+    max-height: calc(100% - 340px);
+  }
+}
